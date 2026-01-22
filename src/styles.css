@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #fafafa;
+  color: #222;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  /* ❗ По умолчанию БЕЗ ограничения */
+  max-width: none;
+
+  padding-left: calc(14px + env(safe-area-inset-left));
+  padding-right: calc(14px + env(safe-area-inset-right));
+  padding-top: calc(14px + env(safe-area-inset-top));
+  padding-bottom: calc(18px + env(safe-area-inset-bottom));
+}
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cart-link {
+  background: #111;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.cart-link:hover {
+  opacity: 0.9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-price {
+  font-weight: 700;
+}
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button-primary {
+  background: #111;
+  color: white;
+}
+
+.button-secondary {
+  background: #e5e7eb;
+}
+
+.button-danger {
+  background: #dc2626;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Cart */
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.cart-item img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-title {
+  font-weight: 600;
+}
+
+.cart-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.total {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+/* Forms */
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: calc(14px + env(safe-area-inset-left));
+    padding-right: calc(14px + env(safe-area-inset-right));
+    padding-top: calc(14px + env(safe-area-inset-top));
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .cart-link {
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 220px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .cart-controls {
+    justify-content: center;
+  }
+}
+
+
+
+
+
