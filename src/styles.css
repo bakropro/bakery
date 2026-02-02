@@ -223,6 +223,43 @@ a:hover {
   }
 }
 
+/* === Catalog (marketplace style) === */
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.catalog-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.catalog-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.catalog-card-body {
+  padding: 8px 10px 12px;
+}
+
+.catalog-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.catalog-card-price {
+  font-size: 13px;
+  color: #555;
+}
+
 
 
 
