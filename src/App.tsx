@@ -70,10 +70,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          //element={<CatalogPage cart={cart} addToCart={addToCart} />}
-        />
+        <Route path="/" element={<CatalogPage />} />
         <Route
           path="/cart"
           element={
