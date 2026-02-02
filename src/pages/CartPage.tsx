@@ -68,7 +68,7 @@ export function CartPage({
                 </button>
               </div>
 
-              <div style={{ width: 100, textAlign: "right" }}>
+              <div className="cart-price">
                 {i.priceOption.price * i.quantity} kr
               </div>
 

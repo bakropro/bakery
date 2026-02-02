@@ -70,8 +70,10 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className="app">
+  <BrowserRouter>
+    <div className="app">
+      {/* ЕДИНСТВЕННЫЙ container НА ВСЁ ПРИЛОЖЕНИЕ */}
+      <div className="container">
         <Routes>
           <Route path="/" element={<CatalogPage />} />
           <Route
@@ -92,12 +94,16 @@ export default function App() {
           />
           <Route
             path="/checkout"
-            element={<CheckoutPage cart={cart} clearCart={clearCart} />}
+            element={
+              <CheckoutPage cart={cart} clearCart={clearCart} />
+            }
           />
         </Routes>
-
-        <BottomTabs />
       </div>
-    </BrowserRouter>
-  );
+
+      <BottomTabs />
+    </div>
+  </BrowserRouter>
+);
+
 }
