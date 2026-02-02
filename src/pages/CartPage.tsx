@@ -32,56 +32,58 @@ export function CartPage({
         <p>Корзина пуста</p>
       ) : (
         <>
-          {cart.map((i) => (
-            <div
-              key={i.product.id + i.priceOption.label}
-              className="cart-item"
-            >
-              <img src={i.product.image} />
-
-              <div style={{ flex: 1 }}>
-                <div className="cart-item-title">
-                  {i.product.title}
-                </div>
-                <div>
-                  {i.priceOption.price} kr / {i.priceOption.label}
-                </div>
-              </div>
-
-              <div className="cart-controls">
-                <button
-                  className="button button-secondary"
-                  onClick={() =>
-                    removeOne(i.product.id, i.priceOption.label)
-                  }
-                >
-                  -
-                </button>
-                <b>{i.quantity}</b>
-                <button
-                  className="button button-secondary"
-                  onClick={() =>
-                    addToCart(i.product, i.priceOption)
-                  }
-                >
-                  +
-                </button>
-              </div>
-
-              <div className="cart-price">
-                {i.priceOption.price * i.quantity} kr
-              </div>
-
-              <button
-                className="button button-danger"
-                onClick={() =>
-                  removeAll(i.product.id, i.priceOption.label)
-                }
+          <div className="cart-list">
+            {cart.map((i) => (
+              <div
+                key={i.product.id + i.priceOption.label}
+                className="cart-item"
               >
-                ✕
-              </button>
-            </div>
-          ))}
+                <img src={i.product.image} />
+
+                <div style={{ flex: 1 }}>
+                  <div className="cart-item-title">
+                    {i.product.title}
+                  </div>
+                  <div>
+                    {i.priceOption.price} kr / {i.priceOption.label}
+                  </div>
+                </div>
+
+                <div className="cart-controls">
+                  <button
+                    className="button button-secondary"
+                    onClick={() =>
+                      removeOne(i.product.id, i.priceOption.label)
+                    }
+                  >
+                    -
+                  </button>
+                  <b>{i.quantity}</b>
+                  <button
+                    className="button button-secondary"
+                    onClick={() =>
+                      addToCart(i.product, i.priceOption)
+                    }
+                  >
+                    +
+                  </button>
+                </div>
+
+                <div className="cart-price">
+                  {i.priceOption.price * i.quantity} kr
+                </div>
+
+                <button
+                  className="button button-danger"
+                  onClick={() =>
+                    removeAll(i.product.id, i.priceOption.label)
+                  }
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
 
           <div className="total">Итого: {total} kr</div>
 

@@ -131,12 +131,15 @@ a:active {
   display: flex;
   gap: 12px;
   align-items: center;
-  background: white;
-  border-radius: 14px;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+
+  background: transparent;
+  border-radius: 0;
+  padding: 12px 0;
+  margin-bottom: 0;
+
+  border-bottom: 1px solid #e5e7eb;
 }
+
 
 .cart-item img {
   width: 80px;
@@ -214,13 +217,6 @@ a:active {
   .input {
     font-size: 16px;
     padding: 12px;
-  }
-
-  .cart-item {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
   }
 
   .cart-controls {
@@ -308,6 +304,13 @@ a:active {
 }
 
 .app {
+  position: relative;
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.page {
+  min-height: 100vh;
   padding-bottom: calc(64px + env(safe-area-inset-bottom));
 }
 
@@ -315,6 +318,11 @@ a:active {
   text-align: right;
   font-weight: 600;
 }
+
+.cart-list {
+  padding: 0 4px;
+}
+
 
 
 

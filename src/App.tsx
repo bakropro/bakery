@@ -72,38 +72,40 @@ export default function App() {
   return (
   <BrowserRouter>
     <div className="app">
-      {/* ЕДИНСТВЕННЫЙ container НА ВСЁ ПРИЛОЖЕНИЕ */}
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<CatalogPage />} />
-          <Route
-            path="/product/:id"
-            element={<ProductPage addToCart={addToCart} />}
-          />
-          <Route
-            path="/cart"
-            element={
-              <CartPage
-                cart={cart}
-                addToCart={addToCart}
-                removeOne={removeOne}
-                removeAll={removeAll}
-                clearCart={clearCart}
-              />
-            }
-          />
-          <Route
-            path="/checkout"
-            element={
-              <CheckoutPage cart={cart} clearCart={clearCart} />
-            }
-          />
-        </Routes>
+      <div className="page">
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<CatalogPage />} />
+            <Route
+              path="/product/:id"
+              element={<ProductPage addToCart={addToCart} />}
+            />
+            <Route
+              path="/cart"
+              element={
+                <CartPage
+                  cart={cart}
+                  addToCart={addToCart}
+                  removeOne={removeOne}
+                  removeAll={removeAll}
+                  clearCart={clearCart}
+                />
+              }
+            />
+            <Route
+              path="/checkout"
+              element={
+                <CheckoutPage cart={cart} clearCart={clearCart} />
+              }
+            />
+          </Routes>
+        </div>
       </div>
 
       <BottomTabs />
     </div>
   </BrowserRouter>
 );
+
 
 }
