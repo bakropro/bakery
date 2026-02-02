@@ -72,7 +72,7 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={<CatalogPage cart={cart} addToCart={addToCart} />}
+          //element={<CatalogPage cart={cart} addToCart={addToCart} />}
         />
         <Route
           path="/cart"
