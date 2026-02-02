@@ -4,6 +4,7 @@ import { CatalogPage } from "./pages/CatalogPage";
 import { CartPage } from "./pages/CartPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { ProductPage } from "./pages/ProductPage";
+import { BottomTabs } from "./components/BottomTabs";
 import {
   loadCart,
   saveCart,
@@ -70,29 +71,33 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<CatalogPage />} />
-        <Route
-          path="/product/:id"
-          element={<ProductPage addToCart={addToCart} />}
-        />
-        <Route
-          path="/cart"
-          element={
-            <CartPage
-              cart={cart}
-              addToCart={addToCart}
-              removeOne={removeOne}
-              removeAll={removeAll}
-              clearCart={clearCart}
-            />
-          }
-        />
-        <Route
-          path="/checkout"
-          element={<CheckoutPage cart={cart} clearCart={clearCart} />}
-        />
-      </Routes>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<CatalogPage />} />
+          <Route
+            path="/product/:id"
+            element={<ProductPage addToCart={addToCart} />}
+          />
+          <Route
+            path="/cart"
+            element={
+              <CartPage
+                cart={cart}
+                addToCart={addToCart}
+                removeOne={removeOne}
+                removeAll={removeAll}
+                clearCart={clearCart}
+              />
+            }
+          />
+          <Route
+            path="/checkout"
+            element={<CheckoutPage cart={cart} clearCart={clearCart} />}
+          />
+        </Routes>
+
+        <BottomTabs />
+      </div>
     </BrowserRouter>
   );
 }
