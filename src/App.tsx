@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CatalogPage } from "./pages/CatalogPage";
 import { CartPage } from "./pages/CartPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
+import { ProductPage } from "./pages/ProductPage";
 import {
   loadCart,
   saveCart,
@@ -29,7 +30,7 @@ export default function App() {
       if (found) {
         return prev.map((i) =>
           i.product.id === product.id &&
-          i.priceOption.label === option.label
+            i.priceOption.label === option.label
             ? { ...i, quantity: i.quantity + 1 }
             : i
         );
@@ -71,6 +72,10 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CatalogPage />} />
+        <Route
+          path="/product/:id"
+          element={<ProductPage addToCart={addToCart} />}
+        />
         <Route
           path="/cart"
           element={
