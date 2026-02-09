@@ -129,6 +129,7 @@ a:active {
 
 .cart-item {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
 
@@ -222,9 +223,15 @@ a:active {
   .cart-controls {
     justify-content: center;
   }
-}
 
-/* === Catalog (marketplace style) === */
+  .cart-item {
+    align-items: flex-start;
+  }
+
+  .button-danger {
+    margin-left: auto;
+  }
+}
 
 .catalog-grid {
   display: grid;
@@ -315,7 +322,8 @@ a:active {
 }
 
 .cart-price {
-  text-align: right;
+  margin-left: auto;
+  white-space: nowrap;
   font-weight: 600;
 }
 
