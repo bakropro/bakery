@@ -168,7 +168,7 @@ export const products: Product[] = [
     title: "Блины с яблоком",
     description: "Нежные блины с яблоками — тёплый и уютный вариант с приятной кисло-сладкой ноткой.",
     prices: [
-      { label: "кг", price: 180 }
+      { label: "кг", price: 150 }
     ],
     image: "/products/pancakes-apple.jpg",
   },
