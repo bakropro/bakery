@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { type CartItem } from "../cartStorage";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   cart: CartItem[];
@@ -81,6 +81,7 @@ export function CheckoutPage({ cart, clearCart }: Props) {
     <div className="container">
       <div className="header">
         <div className="logo">Оформление заказа</div>
+
       </div>
 
       <div style={{ maxWidth: 500 }}>
