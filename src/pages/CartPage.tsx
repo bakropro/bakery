@@ -39,45 +39,39 @@ export function CartPage({
               >
                 <img src={i.product.image} />
 
-                <div className="cart-main">
-                  <div className="cart-title">
+                <div style={{ flex: 1 }}>
+                  <div className="cart-item-title">
                     {i.product.title}
                   </div>
-
-                  <div className="cart-unit">
+                  <div>
                     {i.priceOption.price} kr / {i.priceOption.label}
                   </div>
+                </div>
 
-                  <div className="cart-bottom">
-                    <div className="cart-controls">
-                      <button
-                        className="button button-secondary"
-                        onClick={() =>
-                          removeOne(i.product.id, i.priceOption.label)
-                        }
-                      >
-                        −
-                      </button>
+                <div className="cart-controls">
+                  <button
+                    className="button button-secondary"
+                    onClick={() =>
+                      removeOne(i.product.id, i.priceOption.label)
+                    }
+                  >
+                    -
+                  </button>
+                  <b>{i.quantity}</b>
+                  <button
+                    className="button button-secondary"
+                    onClick={() =>
+                      addToCart(i.product, i.priceOption)
+                    }
+                  >
+                    +
+                  </button>
+                </div>
 
-                      <b>{i.quantity}</b>
-
-                      <button
-                        className="button button-secondary"
-                        onClick={() =>
-                          addToCart(i.product, i.priceOption)
-                        }
-                      >
-                        +
-                      </button>
-                    </div>
-
-                    <div className="cart-price">
-                      {i.priceOption.price * i.quantity} kr
-                    </div>
-                  </div>
+                <div className="cart-price">
+                  {i.priceOption.price * i.quantity} kr
                 </div>
               </div>
-
             ))}
           </div>
 
