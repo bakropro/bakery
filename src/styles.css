@@ -124,8 +124,16 @@ a:active {
 
 .cart-item {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
+
+  background: transparent;
+  border-radius: 0;
+  padding: 12px 0;
+  margin-bottom: 0;
+
+  border-bottom: 1px solid #e5e7eb;
 }
 
 
