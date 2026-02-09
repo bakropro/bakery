@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { products } from "../products";
-import { useNavigate } from "react-router-dom";
+import { CatalogCard } from "../components/CatalogCard";
+import { type CartItem, type Product, type PriceOption } from "../cartStorage";
 
-export function CatalogPage() {
+type Props = {
+  cart: CartItem[];
+  addToCart: (p: Product, o: PriceOption) => void;
+};
+
+export function CatalogPage({ cart, addToCart }: Props) {
   const [query, setQuery] = useState("");
-  const navigate = useNavigate();
 
   const filtered = products.filter((p) =>
     p.title.toLowerCase().includes(query.toLowerCase())
@@ -25,21 +30,12 @@ export function CatalogPage() {
       {/* Сетка товаров */}
       <div className="catalog-grid">
         {filtered.map((p) => (
-          <div
+          <CatalogCard
             key={p.id}
-            className="catalog-card"
-            onClick={() => navigate(`/product/${p.id}`)}
-          >
-            <img src={p.image} alt={p.title} />
-
-            <div className="catalog-card-body">
-              <div className="catalog-card-title">{p.title}</div>
-
-              <div className="catalog-card-price">
-                от {p.prices[0].price} kr
-              </div>
-            </div>
-          </div>
+            product={p}
+            cart={cart}
+            addToCart={addToCart}
+          />
         ))}
       </div>
     </div>

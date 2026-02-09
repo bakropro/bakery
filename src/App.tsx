@@ -70,12 +70,20 @@ export default function App() {
   }
 
   return (
-  <BrowserRouter>
-    <div className="app">
-      <div className="page">
-        <div className="container">
+    <BrowserRouter>
+      <div className="app">
+        <div className="page">
           <Routes>
-            <Route path="/" element={<CatalogPage />} />
+            <Route
+              path="/"
+              element={
+                <CatalogPage
+                  cart={cart}
+                  addToCart={addToCart}
+                />
+              }
+            />
+
             <Route
               path="/product/:id"
               element={<ProductPage addToCart={addToCart} />}
@@ -103,9 +111,8 @@ export default function App() {
       </div>
 
       <BottomTabs />
-    </div>
-  </BrowserRouter>
-);
+    </BrowserRouter>
+  );
 
 
 }
