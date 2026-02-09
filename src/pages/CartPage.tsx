@@ -72,13 +72,6 @@ export function CartPage({
                 <div className="cart-price">
                   {i.priceOption.price * i.quantity} kr
                 </div>
-                <button
-                  className="remove-btn"
-                  onClick={() => removeAll(i.product.id, i.priceOption.label)}
-                  aria-label="Удалить товар"
-                >
-                  ✕
-                </button>
               </div>
             ))}
           </div>

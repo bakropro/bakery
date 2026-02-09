@@ -116,11 +116,6 @@ a:active {
   background: #e5e7eb;
 }
 
-.button-danger {
-  background: #dc2626;
-  color: white;
-}
-
 .button:hover {
   opacity: 0.9;
 }
@@ -226,10 +221,6 @@ a:active {
 
   .cart-item {
     align-items: flex-start;
-  }
-
-  .button-danger {
-    margin-left: auto;
   }
 }
 
