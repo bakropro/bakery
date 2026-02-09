@@ -331,9 +331,23 @@ a:active {
   padding: 0 4px;
 }
 
+.remove-btn {
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 18px;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
 
+  margin-left: auto;
+  /* прижимает вправо */
+}
 
+.remove-btn:hover {
+  color: #ef4444;
+}
 
-
-
-
+.remove-btn:active {
+  transform: scale(0.9);
+}
