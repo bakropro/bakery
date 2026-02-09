@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { type CartItem } from "../cartStorage";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -20,6 +20,22 @@ export function CheckoutPage({ cart, clearCart }: Props) {
   const [address, setAddress] = useState("");
   const [comment, setComment] = useState("");
 
+  useEffect(() => {
+    const tg = window.Telegram?.WebApp;
+    const user = tg?.initDataUnsafe?.user;
+
+    if (user) {
+      if (user.first_name) {
+        setName(user.first_name);
+      }
+
+      if (user.username) {
+        setTelegram(`@${user.username}`);
+      }
+    }
+  }, []);
+
+
   const total = cart.reduce(
     (sum, i) => sum + i.priceOption.price * i.quantity,
     0
@@ -28,9 +44,8 @@ export function CheckoutPage({ cart, clearCart }: Props) {
 
   function submit() {
     if (!name.trim()) return alert("Введите имя");
-    if (!phone.trim() || !phone.startsWith("+46"))
-      return alert("Введите телефон в формате +46...");
-    if (!telegram.trim()) return alert("Введите ник в Telegram");
+    if (!phone.trim()) return alert("Введите телефон ");
+    //if (!telegram.trim()) return alert("Введите ник в Telegram");
     if (deliveryType === "delivery" && !address.trim())
       return alert("Введите адрес доставки");
 
@@ -80,7 +95,7 @@ export function CheckoutPage({ cart, clearCart }: Props) {
         </div>
 
         <div style={{ marginBottom: 12 }}>
-          <label className="label">Telegram *</label>
+          <label className="label">Telegram username</label>
           <input className="input" value={telegram} onChange={(e) => setTelegram(e.target.value)} />
         </div>
 

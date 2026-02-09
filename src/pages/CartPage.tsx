@@ -13,6 +13,7 @@ export function CartPage({
   cart,
   addToCart,
   removeOne,
+
   clearCart,
 }: Props) {
   const total = cart.reduce(
