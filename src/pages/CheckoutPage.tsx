@@ -30,10 +30,11 @@ export function CheckoutPage({ cart, clearCart }: Props) {
       }
 
       if (user.username) {
-        setTelegram(`@${user.username}`);
+        setTelegram("@" + user.username);
       }
     }
   }, []);
+
 
 
   const total = cart.reduce(
@@ -80,7 +81,6 @@ export function CheckoutPage({ cart, clearCart }: Props) {
     <div className="container">
       <div className="header">
         <div className="logo">Оформление заказа</div>
-        <Link to="/cart">← В корзину</Link>
       </div>
 
       <div style={{ maxWidth: 500 }}>
@@ -128,7 +128,7 @@ export function CheckoutPage({ cart, clearCart }: Props) {
           </div>
         )}
 
-        <div className="total">Итого: {total} ₽</div>
+        <div className="total">Итого: {total} kr</div>
 
         <button className="button button-primary" style={{ marginTop: 20 }} onClick={submit}>
           Оформить заказ

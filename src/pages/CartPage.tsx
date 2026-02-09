@@ -25,7 +25,6 @@ export function CartPage({
     <div className="container">
       <div className="header">
         <div className="logo">Корзина 🛒</div>
-        <Link to="/">← В каталог</Link>
       </div>
 
       {cart.length === 0 ? (

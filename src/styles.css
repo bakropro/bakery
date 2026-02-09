@@ -342,3 +342,9 @@ a:active {
 .remove-btn:active {
   transform: scale(0.9);
 }
+
+/* ❗ Когда открыт инпут — скрываем нижние табы */
+.app:focus-within .bottom-tabs {
+  display: none;
+}
+
