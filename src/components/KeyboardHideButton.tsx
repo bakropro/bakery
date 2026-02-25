@@ -5,7 +5,15 @@ export function KeyboardHideButton() {
 
   useEffect(() => {
     function update() {
-      setVisible(document.body.classList.contains("keyboard-open"));
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        // на мобильном показываем только при клавиатуре
+        setVisible(document.body.classList.contains("keyboard-open"));
+      } else {
+        // на ПК всегда показываем для теста
+        setVisible(true);
+      }
     }
 
     document.addEventListener("focusin", update);
@@ -26,8 +34,7 @@ export function KeyboardHideButton() {
     <button
       className="keyboard-hide-button"
       onClick={() => {
-        // снимаем фокус со всех input
-        (document.activeElement as HTMLElement)?.blur();
+        (document.activeElement as HTMLElement)?.blur(); // снимаем фокус
       }}
     >
       ⬇
