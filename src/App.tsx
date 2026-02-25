@@ -63,7 +63,6 @@ export default function App() {
 
   // 🔹 Keyboard detection
   useEffect(() => {
-    const tg = window.Telegram?.WebApp;
 
     // fallback для обычных input на ПК
     function onFocus(e: FocusEvent) {
