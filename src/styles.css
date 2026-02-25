@@ -504,3 +504,26 @@ body.keyboard-open .checkout-footer {
 .checkout-button {
   width: 100%;
 }
+
+.keyboard-hide-button {
+  position: fixed;
+  bottom: calc(64px + 16px + env(safe-area-inset-bottom)); /* над футером или bottom tabs */
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #111;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body:not(.keyboard-open) .keyboard-hide-button {
+  display: none;
+}

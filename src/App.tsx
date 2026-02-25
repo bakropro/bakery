@@ -5,6 +5,7 @@ import { CartPage } from "./pages/CartPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { ProductPage } from "./pages/ProductPage";
 import { BottomTabs } from "./components/BottomTabs";
+import { KeyboardHideButton } from "./components/KeyboardHideButton";
 import {
   loadCart,
   saveCart,
@@ -135,6 +136,7 @@ export default function App() {
       </div>
 
       <BottomTabs />
+      <KeyboardHideButton />
     </BrowserRouter>
   );
 
