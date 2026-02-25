@@ -144,7 +144,7 @@ export function CheckoutPage({
       </div>
 
       {!keyboardOpen && (
-        <div className="checkout-footer">
+        <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 10 }}>
           <div className="checkout-total">Итого: {total} kr</div>
           <button
             className="button button-primary checkout-button"
