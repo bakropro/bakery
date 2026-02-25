@@ -21,13 +21,11 @@ export default function App() {
     saveCart(cart);
   }, [cart]);
 
-  // 🛒 Cart functions
   function addToCart(product: Product, option: PriceOption) {
     setCart((prev) => {
       const found = prev.find(
         (i) => i.product.id === product.id && i.priceOption.label === option.label
       );
-
       if (found) {
         return prev.map((i) =>
           i.product.id === product.id && i.priceOption.label === option.label
@@ -35,7 +33,6 @@ export default function App() {
             : i
         );
       }
-
       return [...prev, { product, priceOption: option, quantity: 1 }];
     });
   }
@@ -63,43 +60,42 @@ export default function App() {
   function clearCart() {
     setCart([]);
   }
-  
 
- useEffect(() => {
-  const tg = window.Telegram?.WebApp as any;
+  // 🔹 Keyboard detection
+  useEffect(() => {
+    const tg = window.Telegram?.WebApp;
 
-  function onKeyboardShow() {
-    document.body.classList.add("keyboard-open");
-  }
-
-  function onKeyboardHide() {
-    document.body.classList.remove("keyboard-open");
-  }
-
-  tg?.onEvent?.("keyboardDidShow", onKeyboardShow);
-  tg?.onEvent?.("keyboardDidHide", onKeyboardHide);
-
-  // fallback для обычных input
-  function onFocus(e: FocusEvent) {
-    if ((e.target as HTMLElement).tagName === "INPUT") {
-      document.body.classList.add("keyboard-open");
+    // fallback для обычных input на ПК
+    function onFocus(e: FocusEvent) {
+      if ((e.target as HTMLElement).tagName === "INPUT") {
+        document.body.classList.add("keyboard-open");
+      }
     }
-  }
 
-  function onBlur(e: FocusEvent) {
-    if ((e.target as HTMLElement).tagName === "INPUT") {
-      document.body.classList.remove("keyboard-open");
+    function onBlur(e: FocusEvent) {
+      if ((e.target as HTMLElement).tagName === "INPUT") {
+        document.body.classList.remove("keyboard-open");
+      }
     }
-  }
 
-  document.addEventListener("focusin", onFocus);
-  document.addEventListener("focusout", onBlur);
+    document.addEventListener("focusin", onFocus);
+    document.addEventListener("focusout", onBlur);
 
-  return () => {
-    document.removeEventListener("focusin", onFocus);
-    document.removeEventListener("focusout", onBlur);
-  };
-}, []);
+    // 📱 Для телефонов: смотрим на resize viewport
+    function checkKeyboard() {
+      const vh = window.visualViewport?.height || window.innerHeight;
+      const isKeyboardOpen = vh < window.innerHeight * 0.6; // если экран сильно уменьшился
+      document.body.classList.toggle("keyboard-open", isKeyboardOpen);
+    }
+
+    window.visualViewport?.addEventListener("resize", checkKeyboard);
+
+    return () => {
+      document.removeEventListener("focusin", onFocus);
+      document.removeEventListener("focusout", onBlur);
+      window.visualViewport?.removeEventListener("resize", checkKeyboard);
+    };
+  }, []);
 
   return (
     <BrowserRouter>
