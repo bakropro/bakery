@@ -21,18 +21,16 @@ export default function App() {
     saveCart(cart);
   }, [cart]);
 
+  // 🛒 Cart functions
   function addToCart(product: Product, option: PriceOption) {
     setCart((prev) => {
       const found = prev.find(
-        (i) =>
-          i.product.id === product.id &&
-          i.priceOption.label === option.label
+        (i) => i.product.id === product.id && i.priceOption.label === option.label
       );
 
       if (found) {
         return prev.map((i) =>
-          i.product.id === product.id &&
-            i.priceOption.label === option.label
+          i.product.id === product.id && i.priceOption.label === option.label
             ? { ...i, quantity: i.quantity + 1 }
             : i
         );
@@ -57,11 +55,7 @@ export default function App() {
   function removeAll(productId: string, label: string) {
     setCart((prev) =>
       prev.filter(
-        (i) =>
-          !(
-            i.product.id === productId &&
-            i.priceOption.label === label
-          )
+        (i) => !(i.product.id === productId && i.priceOption.label === label)
       )
     );
   }
@@ -69,50 +63,51 @@ export default function App() {
   function clearCart() {
     setCart([]);
   }
+  
 
-  useEffect(() => {
+ useEffect(() => {
+  const tg = window.Telegram?.WebApp as any;
 
-    function onFocus(e: FocusEvent) {
-      if ((e.target as HTMLElement).tagName === "INPUT") {
-        document.body.classList.add("keyboard-open");
-      }
+  function onKeyboardShow() {
+    document.body.classList.add("keyboard-open");
+  }
+
+  function onKeyboardHide() {
+    document.body.classList.remove("keyboard-open");
+  }
+
+  tg?.onEvent?.("keyboardDidShow", onKeyboardShow);
+  tg?.onEvent?.("keyboardDidHide", onKeyboardHide);
+
+  // fallback для обычных input
+  function onFocus(e: FocusEvent) {
+    if ((e.target as HTMLElement).tagName === "INPUT") {
+      document.body.classList.add("keyboard-open");
     }
+  }
 
-    function onBlur(e: FocusEvent) {
-      if ((e.target as HTMLElement).tagName === "INPUT") {
-        document.body.classList.remove("keyboard-open");
-      }
+  function onBlur(e: FocusEvent) {
+    if ((e.target as HTMLElement).tagName === "INPUT") {
+      document.body.classList.remove("keyboard-open");
     }
+  }
 
-    document.addEventListener("focusin", onFocus);
-    document.addEventListener("focusout", onBlur);
+  document.addEventListener("focusin", onFocus);
+  document.addEventListener("focusout", onBlur);
 
-    return () => {
-      document.removeEventListener("focusin", onFocus);
-      document.removeEventListener("focusout", onBlur);
-    };
-
-  }, []);
+  return () => {
+    document.removeEventListener("focusin", onFocus);
+    document.removeEventListener("focusout", onBlur);
+  };
+}, []);
 
   return (
     <BrowserRouter>
       <div className="app">
         <div className="page">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <CatalogPage
-                  cart={cart}
-                  addToCart={addToCart}
-                />
-              }
-            />
-
-            <Route
-              path="/product/:id"
-              element={<ProductPage addToCart={addToCart} />}
-            />
+            <Route path="/" element={<CatalogPage cart={cart} addToCart={addToCart} />} />
+            <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
             <Route
               path="/cart"
               element={
@@ -125,20 +120,15 @@ export default function App() {
                 />
               }
             />
-            <Route
-              path="/checkout"
-              element={
-                <CheckoutPage cart={cart} clearCart={clearCart} />
-              }
-            />
+            <Route path="/checkout" element={<CheckoutPage cart={cart} clearCart={clearCart} />} />
           </Routes>
         </div>
       </div>
 
       <BottomTabs />
-      <KeyboardHideButton />
+
+      {/* 🔹 Глобальная кнопка скрытия клавиатуры */}
+      <KeyboardHideButton forceShowOnDesktop={true} />
     </BrowserRouter>
   );
-
-
 }

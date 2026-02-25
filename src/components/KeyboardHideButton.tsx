@@ -1,41 +1,38 @@
 import { useEffect, useState } from "react";
 
-export function KeyboardHideButton() {
+export function KeyboardHideButton({ forceShowOnDesktop = false }: { forceShowOnDesktop?: boolean }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     function update() {
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const isKeyboardOpen = document.body.classList.contains("keyboard-open");
+      const isDesktop = window.innerWidth > 768;
 
-      if (isMobile) {
-        // на мобильном показываем только при клавиатуре
-        setVisible(document.body.classList.contains("keyboard-open"));
-      } else {
-        // на ПК всегда показываем для теста
+      if (isKeyboardOpen || (forceShowOnDesktop && isDesktop)) {
         setVisible(true);
+      } else {
+        setVisible(false);
       }
     }
 
     document.addEventListener("focusin", update);
     document.addEventListener("focusout", update);
 
-    // проверяем сразу
+    // проверка сразу
     update();
 
     return () => {
       document.removeEventListener("focusin", update);
       document.removeEventListener("focusout", update);
     };
-  }, []);
+  }, [forceShowOnDesktop]);
 
   if (!visible) return null;
 
   return (
     <button
       className="keyboard-hide-button"
-      onClick={() => {
-        (document.activeElement as HTMLElement)?.blur(); // снимаем фокус
-      }}
+      onClick={() => (document.activeElement as HTMLElement)?.blur()}
     >
       ⬇
     </button>
