@@ -319,6 +319,8 @@ a:active {
 .page {
   min-height: 100vh;
   padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  width: 100%;
+  max-width: 100%;
 }
 
 .cart-price {
@@ -410,4 +412,56 @@ body.keyboard-open .bottom-tabs {
 
 .price-plus:active {
   transform: scale(0.92);
+}
+
+/* Checkout */
+
+/* Растянуть на всю ширину */
+.checkout-form {
+  width: 100%;
+  max-width: 100%;
+  /* чтобы не ограничивалась */
+  padding-left: calc(14px + env(safe-area-inset-left));
+  padding-right: calc(14px + env(safe-area-inset-right));
+  margin: 0 auto;
+}
+
+.form-fields {
+  padding-bottom: 120px;
+}
+
+.form-block {
+  margin-bottom: 14px;
+}
+
+/* 🔥 Sticky footer */
+
+.checkout-footer {
+
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  bottom: calc(64px + env(safe-area-inset-bottom));
+
+  background: rgba(18, 19, 22, 0.95);
+
+  backdrop-filter: blur(14px);
+
+  padding:
+
+    12px calc(14px + env(safe-area-inset-right)) calc(14px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  z-index: 900;
+}
+
+.checkout-total {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.checkout-button {
+  width: 100%;
 }

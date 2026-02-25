@@ -78,63 +78,112 @@ export function CheckoutPage({ cart, clearCart }: Props) {
   }
 
   return (
-    <div className="container">
+    <>
       <div className="header">
         <div className="logo">Оформление заказа</div>
+      </div>
+
+      <div className="checkout-form">
+
+        <div className="form-fields">
+
+          <div className="form-block">
+            <label className="label">Имя *</label>
+            <input
+              className="input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Телефон *</label>
+            <input
+              className="input"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Telegram username</label>
+            <input
+              className="input"
+              value={telegram}
+              onChange={(e) => setTelegram(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Почта</label>
+            <input
+              className="input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Комментарий</label>
+            <input
+              className="input"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label>
+              <input
+                type="radio"
+                checked={deliveryType === "pickup"}
+                onChange={() => setDeliveryType("pickup")}
+              />
+              Самовывоз
+            </label>
+          </div>
+
+          <div className="form-block">
+            <label>
+              <input
+                type="radio"
+                checked={deliveryType === "delivery"}
+                onChange={() => setDeliveryType("delivery")}
+              />
+              Доставка
+            </label>
+          </div>
+
+          {deliveryType === "delivery" && (
+            <div className="form-block">
+              <label className="label">Адрес *</label>
+              <input
+                className="input"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+          )}
+
+        </div>
 
       </div>
 
-      <div style={{ maxWidth: 500 }}>
-        <div style={{ marginBottom: 12 }}>
-          <label className="label">Имя *</label>
-          <input className="input" value={name} onChange={(e) => setName(e.target.value)} />
+      {/* 🔥 Sticky Footer */}
+      <div className="checkout-footer">
+
+        <div className="checkout-total">
+          Итого: {total} kr
         </div>
 
-        <div style={{ marginBottom: 12 }}>
-          <label className="label">Телефон *</label>
-          <input className="input" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
-          <label className="label">Telegram username</label>
-          <input className="input" value={telegram} onChange={(e) => setTelegram(e.target.value)} />
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
-          <label className="label">Почта</label>
-          <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
-          <label className="label">Комментарий к заказу</label>
-          <input className="input" value={comment} onChange={(e) => setComment(e.target.value)} />
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
-          <label>
-            <input type="radio" checked={deliveryType === "pickup"} onChange={() => setDeliveryType("pickup")} /> Самовывоз
-          </label>
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
-          <label>
-            <input type="radio" checked={deliveryType === "delivery"} onChange={() => setDeliveryType("delivery")} /> Доставка
-          </label>
-        </div>
-
-        {deliveryType === "delivery" && (
-          <div style={{ marginBottom: 12 }}>
-            <label className="label">Адрес *</label>
-            <input className="input" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </div>
-        )}
-
-        <div className="total">Итого: {total} kr</div>
-
-        <button className="button button-primary" style={{ marginTop: 20 }} onClick={submit}>
+        <button
+          className="button button-primary checkout-button"
+          onClick={submit}
+        >
           Оформить заказ
         </button>
+
       </div>
-    </div>
+    </>
   );
 }
