@@ -505,9 +505,15 @@ body.keyboard-open .checkout-footer {
   width: 100%;
 }
 
+body.keyboard-open .bottom-tabs,
+body.keyboard-open .checkout-footer {
+  display: none;
+}
+
 .keyboard-hide-button {
   position: fixed;
-  bottom: 120px; /* чуть выше sticky footer */
+  bottom: 120px;
+  /* чуть выше sticky footer */
   right: 16px;
   width: 44px;
   height: 44px;
@@ -520,5 +526,5 @@ body.keyboard-open .checkout-footer {
   align-items: center;
   z-index: 1000;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

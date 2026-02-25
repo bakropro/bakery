@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CatalogPage } from "./pages/CatalogPage";
 import { CartPage } from "./pages/CartPage";
@@ -15,6 +15,7 @@ import {
 
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>(() => loadCart());
+  const [keyboardOpen, setKeyboardOpen] = useState(false); // состояние клавиатуры
 
   useEffect(() => {
     saveCart(cart);
@@ -65,8 +66,20 @@ export default function App() {
       <div className="app">
         <div className="page">
           <Routes>
-            <Route path="/" element={<CatalogPage cart={cart} addToCart={addToCart} />} />
-            <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
+            <Route
+              path="/"
+              element={
+                <CatalogPage
+                  cart={cart}
+                  addToCart={addToCart}
+                  setKeyboardOpen={setKeyboardOpen} // передаем управление клавиатурой
+                />
+              }
+            />
+            <Route
+              path="/product/:id"
+              element={<ProductPage addToCart={addToCart} />}
+            />
             <Route
               path="/cart"
               element={
@@ -79,12 +92,23 @@ export default function App() {
                 />
               }
             />
-            <Route path="/checkout" element={<CheckoutPage cart={cart} clearCart={clearCart} />} />
+            <Route
+              path="/checkout"
+              element={
+                <CheckoutPage
+                  cart={cart}
+                  clearCart={clearCart}
+                  keyboardOpen={keyboardOpen}   // ✅ добавляем текущее состояние
+                  setKeyboardOpen={setKeyboardOpen}
+                />
+              }
+            />
           </Routes>
         </div>
-      </div>
 
-      <BottomTabs />
+        {/* Скрываем BottomTabs, если клавиатура открыта */}
+        {!keyboardOpen && <BottomTabs />}
+      </div>
     </BrowserRouter>
   );
 }

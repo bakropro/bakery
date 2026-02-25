@@ -6,9 +6,16 @@ import { KeyboardHideButton } from "../components/KeyboardHideButton";
 type Props = {
   cart: CartItem[];
   clearCart: () => void;
+  keyboardOpen?: boolean; // текущее состояние клавиатуры
+  setKeyboardOpen?: (open: boolean) => void;
 };
 
-export function CheckoutPage({ cart, clearCart }: Props) {
+export function CheckoutPage({
+  cart,
+  clearCart,
+  keyboardOpen,
+  setKeyboardOpen,
+}: Props) {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -69,62 +76,36 @@ export function CheckoutPage({ cart, clearCart }: Props) {
       });
   }
 
+  const onFocus = () => setKeyboardOpen?.(true);
+  const onBlur = () => setKeyboardOpen?.(false);
+
   return (
     <div className="checkout-page">
-      {/* Заголовок */}
       <div className="header">
         <div className="logo">Оформление заказа</div>
       </div>
 
-      {/* Форма */}
       <div className="checkout-form">
         <div className="form-fields">
-          <div className="form-block">
-            <label className="label">Имя *</label>
-            <input
-              className="input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
+          {[
+            { label: "Имя *", value: name, set: setName },
+            { label: "Телефон *", value: phone, set: setPhone },
+            { label: "Telegram username", value: telegram, set: setTelegram },
+            { label: "Почта", value: email, set: setEmail },
+            { label: "Комментарий", value: comment, set: setComment },
+          ].map((field) => (
+            <div className="form-block" key={field.label}>
+              <label className="label">{field.label}</label>
+              <input
+                className="input"
+                value={field.value}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onChange={(e) => field.set(e.target.value)}
+              />
+            </div>
+          ))}
 
-          <div className="form-block">
-            <label className="label">Телефон *</label>
-            <input
-              className="input"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-
-          <div className="form-block">
-            <label className="label">Telegram username</label>
-            <input
-              className="input"
-              value={telegram}
-              onChange={(e) => setTelegram(e.target.value)}
-            />
-          </div>
-
-          <div className="form-block">
-            <label className="label">Почта</label>
-            <input
-              className="input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className="form-block">
-            <label className="label">Комментарий</label>
-            <input
-              className="input"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            />
-          </div>
-
-          {/* Тип доставки */}
           <div className="form-block">
             <label>
               <input
@@ -153,6 +134,8 @@ export function CheckoutPage({ cart, clearCart }: Props) {
               <input
                 className="input"
                 value={address}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
@@ -160,17 +143,19 @@ export function CheckoutPage({ cart, clearCart }: Props) {
         </div>
       </div>
 
-      {/* Sticky Footer */}
-      <div className="checkout-footer">
-        <div className="checkout-total">Итого: {total} kr</div>
-        <button
-          className="button button-primary checkout-button"
-          onClick={submit}
-        >
-          Оформить заказ
-        </button>
-      </div>
-      <KeyboardHideButton />
+      {!keyboardOpen && (
+        <div className="checkout-footer">
+          <div className="checkout-total">Итого: {total} kr</div>
+          <button
+            className="button button-primary checkout-button"
+            onClick={submit}
+          >
+            Оформить заказ
+          </button>
+        </div>
+      )}
+
+      {keyboardOpen && <KeyboardHideButton onClick={onBlur} />}
     </div>
   );
 }
