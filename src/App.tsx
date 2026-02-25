@@ -69,6 +69,30 @@ export default function App() {
     setCart([]);
   }
 
+  useEffect(() => {
+
+    function onFocus(e: FocusEvent) {
+      if ((e.target as HTMLElement).tagName === "INPUT") {
+        document.body.classList.add("keyboard-open");
+      }
+    }
+
+    function onBlur(e: FocusEvent) {
+      if ((e.target as HTMLElement).tagName === "INPUT") {
+        document.body.classList.remove("keyboard-open");
+      }
+    }
+
+    document.addEventListener("focusin", onFocus);
+    document.addEventListener("focusout", onBlur);
+
+    return () => {
+      document.removeEventListener("focusin", onFocus);
+      document.removeEventListener("focusout", onBlur);
+    };
+
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="app">
