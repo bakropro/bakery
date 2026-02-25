@@ -80,7 +80,7 @@ export function CheckoutPage({
   const onBlur = () => setKeyboardOpen?.(false);
 
   return (
-    <div className="checkout-page" style={{ paddingBottom: "100px" }}>
+    <div className="checkout-page">
       <div className="header">
         <div className="logo">Оформление заказа</div>
       </div>
@@ -144,18 +144,16 @@ export function CheckoutPage({
       </div>
 
       {/* Контейнер для суммы и кнопки */}
-      <div style={{ padding: "0 14px", marginTop: 20 }}>
+      <div style={{ padding: "0 14px", marginTop: 20, paddingBottom: 60 }}>
         {/* Сумма Итого всегда видна */}
-        <div className="checkout-total" style={{ marginBottom: 10 }}>
-          Итого: {total} kr
-        </div>
+        <div className="checkout-total">Итого: {total} kr</div>
 
         {/* Кнопка исчезает при открытой клавиатуре */}
         {!keyboardOpen && (
           <button
             className="button button-primary checkout-button"
             onClick={submit}
-            style={{ width: "100%" }}
+            style={{ width: "100%", marginTop: 10 }}
           >
             Оформить заказ
           </button>
@@ -163,21 +161,7 @@ export function CheckoutPage({
       </div>
 
       {/* Стрелка для скрытия клавиатуры */}
-      {keyboardOpen && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "calc(12px + env(safe-area-inset-bottom))",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 1000,
-            width: "48px",
-            height: "48px",
-          }}
-        >
-          <KeyboardHideButton onClick={onBlur} />
-        </div>
-      )}
+      {keyboardOpen && <KeyboardHideButton onClick={() => setKeyboardOpen?.(false)} />}
     </div>
   );
 }
