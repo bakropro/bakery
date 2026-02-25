@@ -25,28 +25,19 @@ export function CheckoutPage({ cart, clearCart }: Props) {
     const user = tg?.initDataUnsafe?.user;
 
     if (user) {
-      if (user.first_name) {
-        setName(user.first_name);
-      }
-
-      if (user.username) {
-        setTelegram("@" + user.username);
-      }
+      if (user.first_name) setName(user.first_name);
+      if (user.username) setTelegram("@" + user.username);
     }
   }, []);
-
-
 
   const total = cart.reduce(
     (sum, i) => sum + i.priceOption.price * i.quantity,
     0
   );
 
-
   function submit() {
     if (!name.trim()) return alert("Введите имя");
-    if (!phone.trim()) return alert("Введите телефон ");
-    //if (!telegram.trim()) return alert("Введите ник в Telegram");
+    if (!phone.trim()) return alert("Введите телефон");
     if (deliveryType === "delivery" && !address.trim())
       return alert("Введите адрес доставки");
 
@@ -78,15 +69,15 @@ export function CheckoutPage({ cart, clearCart }: Props) {
   }
 
   return (
-    <>
+    <div className="checkout-page">
+      {/* Заголовок */}
       <div className="header">
         <div className="logo">Оформление заказа</div>
       </div>
 
+      {/* Форма */}
       <div className="checkout-form">
-
         <div className="form-fields">
-
           <div className="form-block">
             <label className="label">Имя *</label>
             <input
@@ -132,6 +123,7 @@ export function CheckoutPage({ cart, clearCart }: Props) {
             />
           </div>
 
+          {/* Тип доставки */}
           <div className="form-block">
             <label>
               <input
@@ -164,26 +156,19 @@ export function CheckoutPage({ cart, clearCart }: Props) {
               />
             </div>
           )}
-
         </div>
-
       </div>
 
-      {/* 🔥 Sticky Footer */}
+      {/* Sticky Footer */}
       <div className="checkout-footer">
-
-        <div className="checkout-total">
-          Итого: {total} kr
-        </div>
-
+        <div className="checkout-total">Итого: {total} kr</div>
         <button
           className="button button-primary checkout-button"
           onClick={submit}
         >
           Оформить заказ
         </button>
-
       </div>
-    </>
+    </div>
   );
 }

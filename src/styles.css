@@ -358,6 +358,10 @@ body.keyboard-open .bottom-tabs {
   display: none;
 }
 
+body.keyboard-open .checkout-footer {
+  display: none;
+}
+
 /* */
 .catalog-prices {
   display: flex;
@@ -414,46 +418,81 @@ body.keyboard-open .bottom-tabs {
   transform: scale(0.92);
 }
 
-/* Checkout */
+/* === CheckoutPage Full-Width + Padding === */
 
-/* Растянуть на всю ширину */
-.checkout-form {
-  width: 100%;
-  max-width: 100%;
-  /* чтобы не ограничивалась */
+/* Основной контейнер страницы */
+.checkout-page {
+  width: 100vw;
+  /* растягиваем на весь экран */
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  /* padding добавляем на внутренние блоки */
+  box-sizing: border-box;
+}
+
+/* Заголовок "Оформление заказа" с боковыми отступами */
+.checkout-page .header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 24px;
   padding-left: calc(14px + env(safe-area-inset-left));
   padding-right: calc(14px + env(safe-area-inset-right));
-  margin: 0 auto;
 }
 
-.form-fields {
-  padding-bottom: 120px;
+/* Форма — добавляем боковые паддинги */
+.checkout-page .checkout-form {
+  width: 100%;
+  padding-left: calc(14px + env(safe-area-inset-left));
+  padding-right: calc(14px + env(safe-area-inset-right));
+  box-sizing: border-box;
 }
 
-.form-block {
-  margin-bottom: 14px;
+/* Поля формы и блоки */
+.checkout-page .form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 🔥 Sticky footer */
+.checkout-page .form-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* расстояние между label и input */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Инпуты */
+.checkout-page .input {
+  width: 100%;
+  box-sizing: border-box;
+  /* padding учитывается внутри ширины */
+  padding: 12px 14px;
+  /* внутренние отступы */
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Sticky Footer */
 .checkout-footer {
-
   position: fixed;
-
   left: 0;
   right: 0;
   bottom: calc(64px + env(safe-area-inset-bottom));
-
   background: rgba(18, 19, 22, 0.95);
-
   backdrop-filter: blur(14px);
-
-  padding:
-
-    12px calc(14px + env(safe-area-inset-right)) calc(14px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));
-
+  padding: 12px calc(14px + env(safe-area-inset-right)) calc(14px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-
   z-index: 900;
 }
 
