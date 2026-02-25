@@ -143,23 +143,22 @@ export function CheckoutPage({
         </div>
       </div>
 
-      {/* Сумма Итого всегда видна */}
-      <div style={{ marginTop: 20, padding: "0 14px" }}>
+      {/* Контейнер для суммы и кнопки */}
+      <div style={{ padding: "0 14px", marginTop: 20, paddingBottom: 60 }}>
+        {/* Сумма Итого всегда видна */}
         <div className="checkout-total">Итого: {total} kr</div>
-      </div>
 
-      {/* Кнопка исчезает при открытой клавиатуре */}
-      {!keyboardOpen && (
-        <div style={{ marginTop: 10, padding: "0 14px" }}>
+        {/* Кнопка исчезает при открытой клавиатуре */}
+        {!keyboardOpen && (
           <button
             className="button button-primary checkout-button"
             onClick={submit}
-            style={{ width: "100%" }}
+            style={{ width: "100%", marginTop: 10 }}
           >
             Оформить заказ
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Стрелка для скрытия клавиатуры */}
       {keyboardOpen && <KeyboardHideButton onClick={() => setKeyboardOpen?.(false)} />}
