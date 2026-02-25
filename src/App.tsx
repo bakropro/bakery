@@ -5,7 +5,6 @@ import { CartPage } from "./pages/CartPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { ProductPage } from "./pages/ProductPage";
 import { BottomTabs } from "./components/BottomTabs";
-import { KeyboardHideButton } from "./components/KeyboardHideButton";
 import {
   loadCart,
   saveCart,
@@ -61,41 +60,6 @@ export default function App() {
     setCart([]);
   }
 
-  // 🔹 Keyboard detection
-  useEffect(() => {
-
-    // fallback для обычных input на ПК
-    function onFocus(e: FocusEvent) {
-      if ((e.target as HTMLElement).tagName === "INPUT") {
-        document.body.classList.add("keyboard-open");
-      }
-    }
-
-    function onBlur(e: FocusEvent) {
-      if ((e.target as HTMLElement).tagName === "INPUT") {
-        document.body.classList.remove("keyboard-open");
-      }
-    }
-
-    document.addEventListener("focusin", onFocus);
-    document.addEventListener("focusout", onBlur);
-
-    // 📱 Для телефонов: смотрим на resize viewport
-    function checkKeyboard() {
-      const vh = window.visualViewport?.height || window.innerHeight;
-      const isKeyboardOpen = vh < window.innerHeight * 0.6; // если экран сильно уменьшился
-      document.body.classList.toggle("keyboard-open", isKeyboardOpen);
-    }
-
-    window.visualViewport?.addEventListener("resize", checkKeyboard);
-
-    return () => {
-      document.removeEventListener("focusin", onFocus);
-      document.removeEventListener("focusout", onBlur);
-      window.visualViewport?.removeEventListener("resize", checkKeyboard);
-    };
-  }, []);
-
   return (
     <BrowserRouter>
       <div className="app">
@@ -121,9 +85,6 @@ export default function App() {
       </div>
 
       <BottomTabs />
-
-      {/* 🔹 Глобальная кнопка скрытия клавиатуры */}
-      <KeyboardHideButton forceShowOnDesktop={true} />
     </BrowserRouter>
   );
 }

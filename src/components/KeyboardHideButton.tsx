@@ -1,38 +1,20 @@
-import { useEffect, useState } from "react";
+type Props = {
+  onClick?: () => void;
+};
 
-export function KeyboardHideButton({ forceShowOnDesktop = false }: { forceShowOnDesktop?: boolean }) {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    function update() {
-      const isKeyboardOpen = document.body.classList.contains("keyboard-open");
-      const isDesktop = window.innerWidth > 768;
-
-      if (isKeyboardOpen || (forceShowOnDesktop && isDesktop)) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-    }
-
-    document.addEventListener("focusin", update);
-    document.addEventListener("focusout", update);
-
-    // проверка сразу
-    update();
-
-    return () => {
-      document.removeEventListener("focusin", update);
-      document.removeEventListener("focusout", update);
-    };
-  }, [forceShowOnDesktop]);
-
-  if (!visible) return null;
+export function KeyboardHideButton({ onClick }: Props) {
+  function handleClick() {
+    // снимаем фокус с активного поля
+    const active = document.activeElement as HTMLElement;
+    active?.blur();
+    onClick?.();
+  }
 
   return (
     <button
       className="keyboard-hide-button"
-      onClick={() => (document.activeElement as HTMLElement)?.blur()}
+      onClick={handleClick}
+      aria-label="Скрыть клавиатуру"
     >
       ⬇
     </button>

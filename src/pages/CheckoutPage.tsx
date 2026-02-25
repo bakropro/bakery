@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { type CartItem } from "../cartStorage";
 import { useNavigate } from "react-router-dom";
+import { KeyboardHideButton } from "../components/KeyboardHideButton";
 
 type Props = {
   cart: CartItem[];
@@ -169,6 +170,7 @@ export function CheckoutPage({ cart, clearCart }: Props) {
           Оформить заказ
         </button>
       </div>
+      <KeyboardHideButton />
     </div>
   );
 }

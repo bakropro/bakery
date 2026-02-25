@@ -507,23 +507,18 @@ body.keyboard-open .checkout-footer {
 
 .keyboard-hide-button {
   position: fixed;
-  bottom: calc(64px + 16px + env(safe-area-inset-bottom)); /* над футером или bottom tabs */
+  bottom: 120px; /* чуть выше sticky footer */
   right: 16px;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   background: #111;
-  color: white;
+  color: #fff;
   font-size: 24px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
-  border: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-body:not(.keyboard-open) .keyboard-hide-button {
-  display: none;
 }
