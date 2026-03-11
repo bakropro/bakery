@@ -61,7 +61,7 @@ export function CheckoutPage({
       total,
     };
 
-    fetch("http://localhost:3001/order", {
+    fetch("/api/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),

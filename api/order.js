@@ -33,7 +33,7 @@ export default async function handler(req, res) {
   try {
 
     for (const chatId of ADMIN_CHAT_IDS) {
-      await fetch("/api/order", {
+      await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
