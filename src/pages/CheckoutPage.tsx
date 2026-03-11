@@ -6,7 +6,7 @@ import { KeyboardHideButton } from "../components/KeyboardHideButton";
 type Props = {
   cart: CartItem[];
   clearCart: () => void;
-  keyboardOpen?: boolean; // текущее состояние клавиатуры
+  keyboardOpen?: boolean;
   setKeyboardOpen?: (open: boolean) => void;
 };
 
@@ -27,11 +27,12 @@ export function CheckoutPage({
   );
   const [address, setAddress] = useState("");
   const [comment, setComment] = useState("");
+  const [debugUser, setDebugUser] = useState<any>(null);
 
   useEffect(() => {
     const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
 
-    console.log("Telegram user:", user);
+    setDebugUser(user);
 
     if (user?.first_name) {
       setName(user.first_name);
@@ -41,6 +42,11 @@ export function CheckoutPage({
       setTelegram("@" + user.username);
     }
   }, []);
+
+  const total = cart.reduce(
+    (sum, i) => sum + i.priceOption.price * i.quantity,
+    0
+  );
 
   function submit() {
     if (!name.trim()) return alert("Введите имя");
@@ -142,12 +148,9 @@ export function CheckoutPage({
         </div>
       </div>
 
-      {/* Контейнер для суммы и кнопки */}
       <div style={{ padding: "0 14px", marginTop: 20, paddingBottom: 60 }}>
-        {/* Сумма Итого всегда видна */}
         <div className="checkout-total">Итого: {total} kr</div>
 
-        {/* Кнопка исчезает при открытой клавиатуре */}
         {!keyboardOpen && (
           <button
             className="button button-primary checkout-button"
@@ -159,8 +162,13 @@ export function CheckoutPage({
         )}
       </div>
 
-      {/* Стрелка для скрытия клавиатуры */}
-      {keyboardOpen && <KeyboardHideButton onClick={() => setKeyboardOpen?.(false)} />}
+      {keyboardOpen && (
+        <KeyboardHideButton onClick={() => setKeyboardOpen?.(false)} />
+      )}
+
+      <pre style={{ fontSize: 12 }}>
+        {JSON.stringify(debugUser, null, 2)}
+      </pre>
     </div>
   );
 }
