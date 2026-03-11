@@ -29,12 +29,14 @@ export function CheckoutPage({
   const [comment, setComment] = useState("");
 
   useEffect(() => {
-    const tg = window.Telegram?.WebApp;
-    const user = tg?.initDataUnsafe?.user;
+    const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
 
-    if (user) {
-      if (user.first_name) setName(user.first_name);
-      if (user.username) setTelegram("@" + user.username);
+    if (user?.first_name) {
+      setName(user.first_name);
+    }
+
+    if (user?.username) {
+      setTelegram("@" + user.username);
     }
   }, []);
 
