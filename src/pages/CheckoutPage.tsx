@@ -31,6 +31,8 @@ export function CheckoutPage({
   useEffect(() => {
     const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
 
+    console.log("Telegram user:", user);
+
     if (user?.first_name) {
       setName(user.first_name);
     }
@@ -39,11 +41,6 @@ export function CheckoutPage({
       setTelegram("@" + user.username);
     }
   }, []);
-
-  const total = cart.reduce(
-    (sum, i) => sum + i.priceOption.price * i.quantity,
-    0
-  );
 
   function submit() {
     if (!name.trim()) return alert("Введите имя");
