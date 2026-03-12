@@ -15,6 +15,13 @@ export default async function handler(req, res) {
   text += `Телефон: ${order.phone}\n`;
   text += `Telegram: ${order.telegram}\n`;
   text += `Способ: ${order.deliveryType}\n`;
+  if (order.email) {
+    text += `Почта: ${order.email}\n`;
+  }
+  if (order.comment) {
+    text += `Комментарий: ${order.comment}\n`;
+  }
+
 
   if (order.address) {
     text += `Адрес: ${order.address}\n`;
