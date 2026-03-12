@@ -45,15 +45,47 @@ export function CheckoutPage({
     0
   );
 
+  function formatSwedishPhone(value: string) {
+    const digits = value.replace(/\D/g, "").slice(0, 9);
+
+    const part1 = digits.slice(0, 3);
+    const part2 = digits.slice(3, 6);
+    const part3 = digits.slice(6, 9);
+
+    let formatted = "+46";
+
+    if (part1) formatted += " " + part1;
+    if (part2) formatted += " " + part2;
+    if (part3) formatted += " " + part3;
+
+    return formatted;
+  }
+
+  function handlePhoneChange(rawValue: string) {
+    let digits = rawValue.replace(/\D/g, "");
+
+    if (digits.startsWith("46")) {
+      digits = digits.slice(2);
+    }
+
+    digits = digits.slice(0, 9);
+    setPhone(digits);
+  }
+
   function submit() {
     if (!name.trim()) return alert("Введите имя");
-    if (!phone.trim()) return alert("Введите телефон");
-    if (deliveryType === "delivery" && !address.trim())
+
+    if (phone.length !== 9) {
+      return alert("Введите телефон в формате +46 xxx xxx xxx");
+    }
+
+    if (deliveryType === "delivery" && !address.trim()) {
       return alert("Введите адрес доставки");
+    }
 
     const order = {
       name,
-      phone,
+      phone: formatSwedishPhone(phone),
       telegram,
       email,
       deliveryType,
@@ -68,7 +100,11 @@ export function CheckoutPage({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
     })
-      .then(() => {
+      .then(async (res) => {
+        if (!res.ok) {
+          throw new Error("Ошибка отправки заказа");
+        }
+
         alert("Заказ отправлен!");
         clearCart();
         navigate("/");
@@ -89,24 +125,64 @@ export function CheckoutPage({
 
       <div className="checkout-form">
         <div className="form-fields">
-          {[
-            { label: "Имя *", value: name, set: setName },
-            { label: "Телефон *", value: phone, set: setPhone },
-            { label: "Telegram username", value: telegram, set: setTelegram },
-            { label: "Почта", value: email, set: setEmail },
-            { label: "Комментарий", value: comment, set: setComment },
-          ].map((field) => (
-            <div className="form-block" key={field.label}>
-              <label className="label">{field.label}</label>
-              <input
-                className="input"
-                value={field.value}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                onChange={(e) => field.set(e.target.value)}
-              />
-            </div>
-          ))}
+          <div className="form-block">
+            <label className="label">Имя *</label>
+            <input
+              className="input"
+              value={name}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Телефон *</label>
+            <input
+              className="input"
+              type="tel"
+              inputMode="numeric"
+              autoComplete="tel"
+              placeholder="+46 123 456 789"
+              value={formatSwedishPhone(phone)}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onChange={(e) => handlePhoneChange(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Telegram username</label>
+            <input
+              className="input"
+              value={telegram}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onChange={(e) => setTelegram(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Почта</label>
+            <input
+              className="input"
+              value={email}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="form-block">
+            <label className="label">Комментарий</label>
+            <input
+              className="input"
+              value={comment}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onChange={(e) => setComment(e.target.value)}
+            />
+          </div>
 
           <div className="form-block">
             <label>
