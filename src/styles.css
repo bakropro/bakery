@@ -528,3 +528,33 @@ body.keyboard-open .checkout-footer {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+.catalog-categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.catalog-categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category-btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.category-btn.active {
+  background: #111;
+  color: #fff;
+}

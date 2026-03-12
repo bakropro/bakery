@@ -4,6 +4,7 @@ export const products: Product[] = [
   {
     id: "pelmeni-home",
     title: "Пельмени домашние",
+    category: "frozen",
     description: "Пельмени ручной работы с сочным домашним фаршем в тонком тесте — сытное блюдо в лучших традициях домашней кухни.",
     prices: [
       { label: "кг", price: 180 }
@@ -13,6 +14,7 @@ export const products: Product[] = [
   {
     id: "pelmeni-beef",
     title: "Пельмени с говядиной",
+    category: "frozen",
     description: "Нежные пельмени с сочной говядиной в тонком тесте — насыщенный вкус и идеальный баланс текстур.",
     prices: [
       { label: "кг", price: 220 }
@@ -22,6 +24,7 @@ export const products: Product[] = [
   {
     id: "pelmeni-sheep",
     title: "Пельмени с бараниной",
+    category: "frozen",
     description: "Сочные пельмени с ароматной начинкой из баранины в тонком тесте — выразительный вкус для ценителей мясных блюд.",
     prices: [
       { label: "кг", price: 250 }
@@ -31,6 +34,7 @@ export const products: Product[] = [
   {
     id: "pelmeni-chicken",
     title: "Пельмени с курицей",
+    category: "frozen",
     description: "Домашние пельмени с ароматной курицей — сытное, но нежное блюдо для любого повода.",
     prices: [
       { label: "кг", price: 180 }
@@ -40,6 +44,7 @@ export const products: Product[] = [
   {
     id: "pelmeni-cheese",
     title: "Пельмени с сыром",
+    category: "frozen",
     description: "Нежные пельмени с тянущимся сыром— аппетитное блюдо с мягким вкусом, которое особенно любят дети.",
     prices: [
       { label: "кг", price: 200 }
@@ -49,6 +54,7 @@ export const products: Product[] = [
   {
     id: "vareniki-curd",
     title: "Вареники с творогом",
+    category: "frozen",
     description: "Домашние вареники с нежным натуральным творогом в тонком тесте — питательное и по-настоящему аппетитное блюдо с мягким сливочным вкусом.",
     prices: [
       { label: "кг", price: 180 }
@@ -58,6 +64,7 @@ export const products: Product[] = [
   {
     id: "vareniki-cherry",
     title: "Вареники с вишней",
+    category: "frozen",
     description: "Нежные вареники из тонкого теста, щедро наполненные сочной вишней с лёгкой кислинкой.",
     prices: [
       { label: "кг", price: 180 }
@@ -67,6 +74,7 @@ export const products: Product[] = [
   {
     id: "vareniki-potato",
     title: "Вареники с картофелем",
+    category: "frozen",
     description: "Румяные вареники из тончайшего теста с нежной, тающей во рту картофельной начинкой.",
     prices: [
       { label: "кг", price: 100 }
@@ -76,6 +84,7 @@ export const products: Product[] = [
   {
     id: "vareniki-potato-mushrooms",
     title: "Вареники с картофелем и грибами",
+    category: "frozen",
     description: "Нежные вареники из тонкого теста с сочной начинкой из картофеля и ароматных грибов. Насыщенный, глубокий вкус и тёплый лесной аромат делают это блюдо особенно уютным и аппетитным.",
     prices: [
       { label: "кг", price: 140 }
@@ -85,6 +94,7 @@ export const products: Product[] = [
   {
     id: "manti",
     title: "Манты",
+    category: "frozen",
     description: "Сочные манты в тонком, эластичном тесте с насыщенной мясной начинкой. Приготовленные на пару, они сохраняют естественную сочность, глубокий вкус и аппетитный аромат традиционного татарского блюда.",
     prices: [
       { label: "кг", price: 180 }
@@ -94,6 +104,7 @@ export const products: Product[] = [
   {
     id: "peppers",
     title: "Фаршированные перцы",
+    category: "frozen",
     description: "Мягкие фаршированные перцы с щедрой мясной начинкой и рассыпчатым рисом — сытное домашнее блюдо с ярким, выразительным вкусом.",
     prices: [
       { label: "кг", price: 180 }
@@ -103,6 +114,7 @@ export const products: Product[] = [
   {
     id: "golubci",
     title: "Голубцы",
+    category: "frozen",
     description: "Нежные голубцы с сочной мясной начинкой и рассыпчатым рисом, аккуратно завернутые в мягкие капустные листья — классика домашней кухни в аппетитном исполнении.",
     prices: [
       { label: "кг", price: 180 }
@@ -112,6 +124,7 @@ export const products: Product[] = [
   {
     id: "sirniki",
     title: "Сырники",
+    category: "frozen",
     description: "Воздушные сырники из натурального творога, обжаренные до золотистой корочки — классический завтрак с мягким сливочным вкусом.",
     prices: [
       { label: "кг", price: 220 }
@@ -121,6 +134,7 @@ export const products: Product[] = [
   {
     id: "pancakes-meat",
     title: "Блины с мясом",
+    category: "frozen",
     description: "Румяные блины с ароматной мясной начинкой — сытное и аппетитное блюдо, которое отлично подойдёт для плотного перекуса.",
     prices: [
       { label: "кг", price: 180 }
@@ -130,6 +144,7 @@ export const products: Product[] = [
   {
     id: "pancakes-cheese-ham",
     title: "Блины с ветчиной и сыром",
+    category: "frozen",
     description: "Нежные блины с сочной ветчиной и тянущимся сыром — сытное и аппетитное блюдо с гармоничным сочетанием вкусов.",
     prices: [
       { label: "кг", price: 180 }
@@ -139,6 +154,7 @@ export const products: Product[] = [
   {
     id: "pancakes-chicken",
     title: "Блины с курицей",
+    category: "frozen",
     description: "Нежные блины с куриной начинкой — лёгкое, питательное блюдо с мягким вкусом, любимое и взрослыми, и детьми.",
     prices: [
       { label: "кг", price: 180 }
@@ -148,6 +164,7 @@ export const products: Product[] = [
   {
     id: "pancakes-potato-mushrooms",
     title: "Блины с картофелем и грибами",
+    category: "frozen",
     description: "Румяные блины с картофелем и грибами — аппетитный вариант для плотного обеда или перекуса.",
     prices: [
       { label: "кг", price: 180 }
@@ -157,6 +174,7 @@ export const products: Product[] = [
   {
     id: "pancakes-curd",
     title: "Блины с творогом",
+    category: "frozen",
     description: "Мягкие блины с натуральным творогом — гармоничное сочетание нежности, пользы и домашнего вкуса.",
     prices: [
       { label: "кг", price: 180 }
@@ -166,6 +184,7 @@ export const products: Product[] = [
   {
     id: "pancakes-apple",
     title: "Блины с яблоком",
+    category: "frozen",
     description: "Нежные блины с яблоками — тёплый и уютный вариант с приятной кисло-сладкой ноткой.",
     prices: [
       { label: "кг", price: 150 }
@@ -175,6 +194,7 @@ export const products: Product[] = [
   {
     id: "pie-cabbage-egg",
     title: "Пирожок с капустой и яйцом",
+    category: "bakery",
     description: "Румяный пирожок с сочной начинкой из капусты и яйца в мягком тесте — уютная классика домашней кухни.",
     prices: [
       { label: "шт", price: 20 }
@@ -184,6 +204,7 @@ export const products: Product[] = [
   {
     id: "pie-potato",
     title: "Пирожок с картофелем",
+    category: "bakery",
     description: "Золотистый пирожок с ароматной картофельной начинкой в мягком тесте — сытная классика домашней кухни.",
     prices: [
       { label: "шт", price: 20 }
@@ -193,6 +214,7 @@ export const products: Product[] = [
   {
     id: "pie-potato-mushrooms",
     title: "Пирожок с картофелем и грибами",
+    category: "bakery",
     description: "Румяный пирожок с картофелем и ароматными грибами в мягком тесте — уютная классика домашней кухни.",
     prices: [
       { label: "шт", price: 20 }
@@ -202,6 +224,7 @@ export const products: Product[] = [
   {
     id: "echpochmak",
     title: "Эчпочмак",
+    category: "bakery",
     description: "Традиционный татарский треугольный пирожок из тонкого теста с сочной начинкой из говядины, картофеля и лука, запечённый до румяной корочки.",
     prices: [
       { label: "шт", price: 30 }
@@ -211,6 +234,7 @@ export const products: Product[] = [
   {
     id: "pie-apple-cinnamon",
     title: "Пирожок с яблоком и корицей",
+    category: "bakery",
     description: "Золотистый пирожок с нежными яблоками и пряной корицей в мягком тесте — ароматное лакомство с уютным домашним вкусом.",
     prices: [
       { label: "шт", price: 20 }
@@ -220,6 +244,7 @@ export const products: Product[] = [
   {
     id: "kish-losos",
     title: "Киш с лососем и брокколи",
+    category: "bakery",
     description: "Нежный киш с лососем и брокколи: хрустящее песочное тесто, сливочная заливка и сочный лосось с яркой зеленью брокколи. Богатый вкус, идеальный баланс и никаких компромиссов.",
     prices: [
       { label: "шт", price: 300 }
@@ -229,6 +254,7 @@ export const products: Product[] = [
   {
     id: "cake-carrot",
     title: "Морковный торт",
+    category: "desserts",
     description: "Сочный пряный морковный бисквит с нежным сливочным кремом, тающий во рту с первого кусочка.",
     prices: [
       { label: "2,5 кг", price: 450 },
@@ -239,6 +265,7 @@ export const products: Product[] = [
   {
     id: "sharlik",
     title: "Шоколадный шарлик",
+    category: "desserts",
     description: "Воздушный шоколадный бисквит с густым, тающим кремом из тёмного шоколада, щедро покрытый кокосовой стружкой.",
     prices: [
       { label: "2,5 кг", price: 450 },
@@ -249,6 +276,7 @@ export const products: Product[] = [
   {
     id: "pickled-cabbage",
     title: "Квашеная капуста",
+    category: "salads",
     description: "Хрустящая квашеная капуста с яркой кислинкой и натуральным вкусом — полезная закуска, богатая витаминами и пробиотиками.",
     prices: [
       { label: "кг", price: 70 }
