@@ -27,12 +27,9 @@ export function CheckoutPage({
   );
   const [address, setAddress] = useState("");
   const [comment, setComment] = useState("");
-  const [debugUser, setDebugUser] = useState<any>(null);
 
   useEffect(() => {
     const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
-
-    setDebugUser(user);
 
     if (user?.first_name) {
       setName(user.first_name);
@@ -165,10 +162,6 @@ export function CheckoutPage({
       {keyboardOpen && (
         <KeyboardHideButton onClick={() => setKeyboardOpen?.(false)} />
       )}
-
-      <pre style={{ fontSize: 12 }}>
-        {JSON.stringify(debugUser, null, 2)}
-      </pre>
     </div>
   );
 }
