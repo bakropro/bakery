@@ -42,8 +42,8 @@ export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
         />
       </div>
 
-      <div className="catalog-categories-wrap">
-        <div className="catalog-categories">
+      <div className="catalog-categories-scroll">
+        <div className="catalog-categories-row">
           {categories.map((c) => (
             <button
               key={c.key}
