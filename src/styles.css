@@ -226,8 +226,29 @@ a:active {
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+  width: 100%;
+}
+
+.catalog-grid>* {
+  min-width: 0;
+}
+
+.catalog-card {
+  width: 100%;
+  min-width: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .catalog-card {
@@ -529,24 +550,6 @@ body.keyboard-open .checkout-footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.catalog-categories {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  max-width: 100%;
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.catalog-categories::-webkit-scrollbar {
-  display: none;
-}
-
 .category-btn {
   border: none;
   padding: 10px 14px;
@@ -580,4 +583,28 @@ body {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+}
+
+.catalog-categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.catalog-categories::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
