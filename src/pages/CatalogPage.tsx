@@ -47,9 +47,7 @@ export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
           {categories.map((c) => (
             <button
               key={c.key}
-              className={
-                "category-btn" + (category === c.key ? " active" : "")
-              }
+              className={"category-btn" + (category === c.key ? " active" : "")}
               onClick={() => setCategory(c.key)}
               type="button"
             >

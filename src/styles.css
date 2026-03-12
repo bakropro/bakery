@@ -224,35 +224,6 @@ a:active {
   }
 }
 
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.catalog-grid>* {
-  min-width: 0;
-}
-
-.catalog-card {
-  width: 100%;
-  min-width: 0;
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
 .catalog-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -607,4 +578,67 @@ body {
 .category-btn.active {
   background: #111;
   color: #fff;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, calc((100% - 12px) / 2));
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.catalog-grid>* {
+  min-width: 0;
+  width: 100%;
+}
+
+.catalog-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.catalog-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.catalog-card-body {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px 12px;
+}
+
+.catalog-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.catalog-card-price {
+  font-size: 13px;
+  color: #555;
+}
+
+html,
+body,
+#root,
+.app,
+.page,
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
