@@ -642,3 +642,47 @@ body,
   max-width: 100%;
   overflow-x: hidden;
 }
+
+.catalog-cart-floating {
+  position: fixed;
+  right: 14px;
+  bottom: calc(76px + env(safe-area-inset-bottom));
+  z-index: 900;
+
+  padding: 10px 14px;
+
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(17, 17, 17, 0.95);
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+}
+
+.catalog-cart-floating:active {
+  transform: scale(0.96);
+}
+
+.catalog-cart-floating:active {
+  transform: scale(0.98);
+}
+
+.catalog-cart-floating-count {
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.catalog-cart-floating-price {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}

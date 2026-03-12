@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { products } from "../products";
 import { CatalogCard } from "../components/CatalogCard";
 import { type CartItem, type Product, type PriceOption } from "../cartStorage";
@@ -18,16 +19,21 @@ const categories = [
 ] as const;
 
 export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
+  const navigate = useNavigate();
+
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<(typeof categories)[number]["key"]>("all");
+  const [searchFocused, setSearchFocused] = useState(false);
 
   const filtered = products
-    .filter((p) =>
-      p.title.toLowerCase().includes(query.toLowerCase())
-    )
-    .filter((p) =>
-      category === "all" ? true : p.category === category
-    );
+    .filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
+    .filter((p) => (category === "all" ? true : p.category === category));
+
+  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.priceOption.price * item.quantity,
+    0
+  );
 
   return (
     <div className="container">
@@ -37,8 +43,14 @@ export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
           placeholder="Поиск"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => setKeyboardOpen(true)}
-          onBlur={() => setKeyboardOpen(false)}
+          onFocus={() => {
+            setKeyboardOpen(true);
+            setSearchFocused(true);
+          }}
+          onBlur={() => {
+            setKeyboardOpen(false);
+            setSearchFocused(false);
+          }}
         />
       </div>
 
@@ -67,6 +79,16 @@ export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
           />
         ))}
       </div>
+
+      {!searchFocused && totalCount > 0 && (
+        <button
+          type="button"
+          className="catalog-cart-floating"
+          onClick={() => navigate("/cart")}
+        >
+          🛒 {totalCount} · {totalPrice} kr
+        </button>
+      )}
     </div>
   );
 }
