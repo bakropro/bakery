@@ -200,6 +200,15 @@ export const products: Product[] = [
     image: "/products/pie-potato-mushrooms.jpg",
   },
   {
+    id: "echpochmak",
+    title: "Эчпочмак",
+    description: "Традиционный татарский треугольный пирожок из тонкого теста с сочной начинкой из говядины, картофеля и лука, запечённый до румяной корочки.",
+    prices: [
+      { label: "шт", price: 30 }
+    ],
+    image: "/products/echpochmak.jpg",
+  },
+  {
     id: "pie-apple-cinnamon",
     title: "Пирожок с яблоком и корицей",
     description: "Золотистый пирожок с нежными яблоками и пряной корицей в мягком тесте — ароматное лакомство с уютным домашним вкусом.",
