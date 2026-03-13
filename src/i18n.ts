@@ -33,7 +33,9 @@ export const translations = {
     orderError: "Ошибка отправки заказа",
     productNotFound: "Товар не на йден",
     back: "Назад",
-    add: "Добавить"
+    add: "Добавить",
+    close: "Закрыть",
+    options: "Варианты"
   },
 
   en: {
@@ -68,7 +70,9 @@ export const translations = {
     orderError: "Order sending error",
     productNotFound: "Product not found",
     back: "Back",
-    add: "Add"
+    add: "Add",
+    close: "Close",
+    options: "Options"
   },
 } as const;
 
