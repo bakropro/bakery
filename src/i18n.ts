@@ -34,8 +34,7 @@ export const translations = {
     productNotFound: "Товар не на йден",
     back: "Назад",
     add: "Добавить",
-    close: "Закрыть",
-    options: "Варианты"
+    
   },
 
   en: {
@@ -71,8 +70,7 @@ export const translations = {
     productNotFound: "Product not found",
     back: "Back",
     add: "Add",
-    close: "Close",
-    options: "Options"
+    
   },
 } as const;
 

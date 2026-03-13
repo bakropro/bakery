@@ -50,7 +50,22 @@ export function CatalogPage({
 
   return (
     <div className="container">
-      <div className="catalog-top-row">
+      <div className="catalog-search-row">
+        <input
+          className="input catalog-search-input"
+          placeholder={t(lang, "search")}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onFocus={() => {
+            setKeyboardOpen(true);
+            setSearchFocused(true);
+          }}
+          onBlur={() => {
+            setKeyboardOpen(false);
+            setSearchFocused(false);
+          }}
+        />
+
         <div className="catalog-language-switcher">
           <button
             type="button"
@@ -68,23 +83,6 @@ export function CatalogPage({
             EN
           </button>
         </div>
-      </div>
-
-      <div style={{ marginBottom: 16 }}>
-        <input
-          className="input"
-          placeholder={t(lang, "search")}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => {
-            setKeyboardOpen(true);
-            setSearchFocused(true);
-          }}
-          onBlur={() => {
-            setKeyboardOpen(false);
-            setSearchFocused(false);
-          }}
-        />
       </div>
 
       <div className="catalog-categories-scroll">
