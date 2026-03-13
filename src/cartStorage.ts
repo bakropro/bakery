@@ -1,17 +1,29 @@
-export type PriceOption = {
-  label: string;   // например: "1 кг", "1 шт", "порция"
-  price: number;   // цена в кронах
+export type Lang = "ru" | "en";
+
+export type LocalizedText = {
+  ru: string;
+  en: string;
 };
+
+export type PriceOption = {
+  label: LocalizedText; // например: { ru: "кг", en: "kg" }
+  price: number; // цена в кронах
+};
+
+export type ProductCategory =
+  | "frozen"
+  | "bakery"
+  | "desserts"
+  | "salads";
 
 export type Product = {
   id: string;
-  title: string;
-  category: string;
-  description: string;
+  title: LocalizedText;
+  category: ProductCategory;
+  description: LocalizedText;
   image: string;
   prices: PriceOption[];
 };
-
 
 export type CartItem = {
   product: Product;

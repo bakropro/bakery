@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { t, type Lang } from "../i18n";
 
-export function BottomTabs() {
+type Props = {
+  lang: Lang;
+};
+
+export function BottomTabs({ lang }: Props) {
   return (
     <div className="bottom-tabs">
       <NavLink
@@ -11,7 +16,7 @@ export function BottomTabs() {
         }
       >
         🍰
-        <span>Меню</span>
+        <span>{t(lang, "menu")}</span>
       </NavLink>
 
       <NavLink
@@ -21,7 +26,7 @@ export function BottomTabs() {
         }
       >
         🛒
-        <span>Корзина</span>
+        <span>{t(lang, "cart")}</span>
       </NavLink>
     </div>
   );

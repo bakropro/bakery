@@ -11,28 +11,44 @@ import {
   type CartItem,
   type Product,
   type PriceOption,
+  type Lang,
 } from "./cartStorage";
 
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>(() => loadCart());
-  const [keyboardOpen, setKeyboardOpen] = useState(false); // состояние клавиатуры
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+  const [lang, setLang] = useState<Lang>(() => {
+    const saved = localStorage.getItem("lang");
+    return saved === "ru" || saved === "en" ? saved : "ru";
+  });
 
   useEffect(() => {
     saveCart(cart);
   }, [cart]);
 
+  useEffect(() => {
+    localStorage.setItem("lang", lang);
+  }, [lang]);
+
   function addToCart(product: Product, option: PriceOption) {
     setCart((prev) => {
       const found = prev.find(
-        (i) => i.product.id === product.id && i.priceOption.label === option.label
+        (i) =>
+          i.product.id === product.id &&
+          i.priceOption.label.ru === option.label.ru &&
+          i.priceOption.label.en === option.label.en
       );
+
       if (found) {
         return prev.map((i) =>
-          i.product.id === product.id && i.priceOption.label === option.label
+          i.product.id === product.id &&
+            i.priceOption.label.ru === option.label.ru &&
+            i.priceOption.label.en === option.label.en
             ? { ...i, quantity: i.quantity + 1 }
             : i
         );
       }
+
       return [...prev, { product, priceOption: option, quantity: 1 }];
     });
   }
@@ -41,7 +57,8 @@ export default function App() {
     setCart((prev) =>
       prev
         .map((i) =>
-          i.product.id === productId && i.priceOption.label === label
+          i.product.id === productId &&
+            (i.priceOption.label.ru === label || i.priceOption.label.en === label)
             ? { ...i, quantity: i.quantity - 1 }
             : i
         )
@@ -52,7 +69,12 @@ export default function App() {
   function removeAll(productId: string, label: string) {
     setCart((prev) =>
       prev.filter(
-        (i) => !(i.product.id === productId && i.priceOption.label === label)
+        (i) =>
+          !(
+            i.product.id === productId &&
+            (i.priceOption.label.ru === label ||
+              i.priceOption.label.en === label)
+          )
       )
     );
   }
@@ -72,14 +94,23 @@ export default function App() {
                 <CatalogPage
                   cart={cart}
                   addToCart={addToCart}
-                  setKeyboardOpen={setKeyboardOpen} // передаем управление клавиатурой
+                  setKeyboardOpen={setKeyboardOpen}
+                  lang={lang}
+                  setLang={setLang}
                 />
               }
             />
+
             <Route
               path="/product/:id"
-              element={<ProductPage addToCart={addToCart} />}
+              element={
+                <ProductPage
+                  addToCart={addToCart}
+                  lang={lang}
+                />
+              }
             />
+
             <Route
               path="/cart"
               element={
@@ -89,25 +120,27 @@ export default function App() {
                   removeOne={removeOne}
                   removeAll={removeAll}
                   clearCart={clearCart}
+                  lang={lang}
                 />
               }
             />
+
             <Route
               path="/checkout"
               element={
                 <CheckoutPage
                   cart={cart}
                   clearCart={clearCart}
-                  keyboardOpen={keyboardOpen}   // ✅ добавляем текущее состояние
+                  keyboardOpen={keyboardOpen}
                   setKeyboardOpen={setKeyboardOpen}
+                  lang={lang}
                 />
               }
             />
           </Routes>
         </div>
 
-        {/* Скрываем BottomTabs, если клавиатура открыта */}
-        {!keyboardOpen && <BottomTabs />}
+        {!keyboardOpen && <BottomTabs lang={lang} />}
       </div>
     </BrowserRouter>
   );

@@ -1,12 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../products";
 import { type Product, type PriceOption } from "../cartStorage";
+import { t, type Lang } from "../i18n";
 
 type Props = {
   addToCart: (product: Product, option: PriceOption) => void;
+  lang: Lang;
 };
 
-export function ProductPage({ addToCart }: Props) {
+export function ProductPage({ addToCart, lang }: Props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -15,7 +17,7 @@ export function ProductPage({ addToCart }: Props) {
   if (!product) {
     return (
       <div className="container">
-        <p>Товар не найден</p>
+        <p>{t(lang, "productNotFound")}</p>
       </div>
     );
   }
@@ -28,14 +30,14 @@ export function ProductPage({ addToCart }: Props) {
           className="button button-secondary"
           onClick={() => navigate(-1)}
         >
-          ← Назад
+          ← {t(lang, "back")}
         </button>
       </div>
 
       {/* Image */}
       <img
         src={product.image}
-        alt={product.title}
+        alt={product.title[lang]}
         style={{
           width: "100%",
           borderRadius: 16,
@@ -45,23 +47,23 @@ export function ProductPage({ addToCart }: Props) {
 
       {/* Title */}
       <h1 style={{ fontSize: 22, marginBottom: 8 }}>
-        {product.title}
+        {product.title[lang]}
       </h1>
 
       {/* Description */}
       <p style={{ lineHeight: 1.5, marginBottom: 20 }}>
-        {product.description}
+        {product.description[lang]}
       </p>
 
       {/* Prices */}
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {product.prices.map((opt) => (
           <button
-            key={opt.label}
+            key={opt.label[lang]}
             className="button button-primary"
             onClick={() => addToCart(product, opt)}
           >
-            Добавить — {opt.price} kr / {opt.label}
+            {t(lang, "add")} — {opt.price} kr / {opt.label[lang]}
           </button>
         ))}
       </div>

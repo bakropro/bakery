@@ -1,5 +1,6 @@
 import { type CartItem, type Product, type PriceOption } from "../cartStorage";
 import { Link } from "react-router-dom";
+import { t, type Lang } from "../i18n";
 
 type Props = {
   cart: CartItem[];
@@ -7,14 +8,15 @@ type Props = {
   removeOne: (id: string, label: string) => void;
   removeAll: (id: string, label: string) => void;
   clearCart: () => void;
+  lang: Lang;
 };
 
 export function CartPage({
   cart,
   addToCart,
   removeOne,
-
   clearCart,
+  lang,
 }: Props) {
   const total = cart.reduce(
     (sum, i) => sum + i.priceOption.price * i.quantity,
@@ -24,27 +26,27 @@ export function CartPage({
   return (
     <div className="container">
       <div className="header">
-        <div className="logo">Корзина 🛒</div>
+        <div className="logo">{t(lang, "cart")} 🛒</div>
       </div>
 
       {cart.length === 0 ? (
-        <p>Корзина пуста</p>
+        <p>{t(lang, "cartEmpty")}</p>
       ) : (
         <>
           <div className="cart-list">
             {cart.map((i) => (
               <div
-                key={i.product.id + i.priceOption.label}
+                key={i.product.id + i.priceOption.label[lang]}
                 className="cart-item"
               >
                 <img src={i.product.image} />
 
                 <div style={{ flex: 1 }}>
                   <div className="cart-item-title">
-                    {i.product.title}
+                    {i.product.title[lang]}
                   </div>
                   <div>
-                    {i.priceOption.price} kr / {i.priceOption.label}
+                    {i.priceOption.price} kr / {i.priceOption.label[lang]}
                   </div>
                 </div>
 
@@ -52,17 +54,17 @@ export function CartPage({
                   <button
                     className="button button-secondary"
                     onClick={() =>
-                      removeOne(i.product.id, i.priceOption.label)
+                      removeOne(i.product.id, i.priceOption.label[lang])
                     }
                   >
                     -
                   </button>
+
                   <b>{i.quantity}</b>
+
                   <button
                     className="button button-secondary"
-                    onClick={() =>
-                      addToCart(i.product, i.priceOption)
-                    }
+                    onClick={() => addToCart(i.product, i.priceOption)}
                   >
                     +
                   </button>
@@ -75,14 +77,17 @@ export function CartPage({
             ))}
           </div>
 
-          <div className="total">Итого: {total} kr</div>
+          <div className="total">
+            {t(lang, "total")}: {total} kr
+          </div>
 
           <div style={{ marginTop: 20, display: "flex", gap: 10 }}>
             <button className="button button-secondary" onClick={clearCart}>
-              Очистить
+              {t(lang, "clear")}
             </button>
+
             <Link className="button button-primary" to="/checkout">
-              Оформить заказ
+              {t(lang, "placeOrder")}
             </Link>
           </div>
         </>

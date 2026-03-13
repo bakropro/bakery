@@ -3,284 +3,400 @@ import { type Product } from "./cartStorage";
 export const products: Product[] = [
   {
     id: "pelmeni-home",
-    title: "Пельмени домашние",
+    title: {
+      ru: "Пельмени домашние",
+      en: "Homemade pelmeni",
+    },
     category: "frozen",
-    description: "Пельмени ручной работы с сочным домашним фаршем в тонком тесте — сытное блюдо в лучших традициях домашней кухни.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Пельмени ручной работы с сочным домашним фаршем в тонком тесте — сытное блюдо в лучших традициях домашней кухни.",
+      en: "Handmade pelmeni with juicy homemade minced meat in thin dough — a hearty dish in the best traditions of home cooking.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pelmeni-home.jpg",
   },
   {
     id: "pelmeni-beef",
-    title: "Пельмени с говядиной",
+    title: {
+      ru: "Пельмени с говядиной",
+      en: "Beef pelmeni",
+    },
     category: "frozen",
-    description: "Нежные пельмени с сочной говядиной в тонком тесте — насыщенный вкус и идеальный баланс текстур.",
-    prices: [
-      { label: "кг", price: 220 }
-    ],
+    description: {
+      ru: "Нежные пельмени с сочной говядиной в тонком тесте — насыщенный вкус и идеальный баланс текстур.",
+      en: "Tender pelmeni with juicy beef in thin dough — rich flavor and a perfect balance of textures.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 220 }],
     image: "/products/pelmeni-beef.jpg",
   },
   {
     id: "pelmeni-sheep",
-    title: "Пельмени с бараниной",
+    title: {
+      ru: "Пельмени с бараниной",
+      en: "Lamb pelmeni",
+    },
     category: "frozen",
-    description: "Сочные пельмени с ароматной начинкой из баранины в тонком тесте — выразительный вкус для ценителей мясных блюд.",
-    prices: [
-      { label: "кг", price: 250 }
-    ],
+    description: {
+      ru: "Сочные пельмени с ароматной начинкой из баранины в тонком тесте — выразительный вкус для ценителей мясных блюд.",
+      en: "Juicy pelmeni with flavorful lamb filling in thin dough — a bold taste for lovers of meat dishes.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 250 }],
     image: "/products/pelmeni-sheep.jpg",
   },
   {
     id: "pelmeni-chicken",
-    title: "Пельмени с курицей",
+    title: {
+      ru: "Пельмени с курицей",
+      en: "Chicken pelmeni",
+    },
     category: "frozen",
-    description: "Домашние пельмени с ароматной курицей — сытное, но нежное блюдо для любого повода.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Домашние пельмени с ароматной курицей — сытное, но нежное блюдо для любого повода.",
+      en: "Homemade pelmeni with flavorful chicken — a hearty yet delicate dish for any occasion.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pelmeni-chicken.jpg",
   },
   {
     id: "pelmeni-cheese",
-    title: "Пельмени с сыром",
+    title: {
+      ru: "Пельмени с сыром",
+      en: "Cheese pelmeni",
+    },
     category: "frozen",
-    description: "Нежные пельмени с тянущимся сыром— аппетитное блюдо с мягким вкусом, которое особенно любят дети.",
-    prices: [
-      { label: "кг", price: 200 }
-    ],
+    description: {
+      ru: "Нежные пельмени с тянущимся сыром — аппетитное блюдо с мягким вкусом, которое особенно любят дети.",
+      en: "Tender pelmeni with melted cheese — an appetizing dish with a mild flavor, especially loved by children.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 200 }],
     image: "/products/pelmeni-cheese.jpg",
   },
   {
     id: "vareniki-curd",
-    title: "Вареники с творогом",
+    title: {
+      ru: "Вареники с творогом",
+      en: "Cottage cheese vareniki",
+    },
     category: "frozen",
-    description: "Домашние вареники с нежным натуральным творогом в тонком тесте — питательное и по-настоящему аппетитное блюдо с мягким сливочным вкусом.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Домашние вареники с нежным натуральным творогом в тонком тесте — питательное и по-настоящему аппетитное блюдо с мягким сливочным вкусом.",
+      en: "Homemade vareniki with delicate natural cottage cheese in thin dough — a nourishing and truly appetizing dish with a soft creamy taste.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/vareniki-curd.jpg",
   },
   {
     id: "vareniki-cherry",
-    title: "Вареники с вишней",
+    title: {
+      ru: "Вареники с вишней",
+      en: "Cherry vareniki",
+    },
     category: "frozen",
-    description: "Нежные вареники из тонкого теста, щедро наполненные сочной вишней с лёгкой кислинкой.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Нежные вареники из тонкого теста, щедро наполненные сочной вишней с лёгкой кислинкой.",
+      en: "Delicate vareniki made with thin dough, generously filled with juicy cherries and a slight tartness.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/vareniki-cherry.jpg",
   },
   {
     id: "vareniki-potato",
-    title: "Вареники с картофелем",
+    title: {
+      ru: "Вареники с картофелем",
+      en: "Potato vareniki",
+    },
     category: "frozen",
-    description: "Румяные вареники из тончайшего теста с нежной, тающей во рту картофельной начинкой.",
-    prices: [
-      { label: "кг", price: 100 }
-    ],
+    description: {
+      ru: "Румяные вареники из тончайшего теста с нежной, тающей во рту картофельной начинкой.",
+      en: "Golden vareniki made with very thin dough and a tender potato filling that melts in your mouth.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 100 }],
     image: "/products/vareniki-potato.jpg",
   },
   {
     id: "vareniki-potato-mushrooms",
-    title: "Вареники с картофелем и грибами",
+    title: {
+      ru: "Вареники с картофелем и грибами",
+      en: "Potato and mushroom vareniki",
+    },
     category: "frozen",
-    description: "Нежные вареники из тонкого теста с сочной начинкой из картофеля и ароматных грибов. Насыщенный, глубокий вкус и тёплый лесной аромат делают это блюдо особенно уютным и аппетитным.",
-    prices: [
-      { label: "кг", price: 140 }
-    ],
+    description: {
+      ru: "Нежные вареники из тонкого теста с сочной начинкой из картофеля и ароматных грибов. Насыщенный, глубокий вкус и тёплый лесной аромат делают это блюдо особенно уютным и аппетитным.",
+      en: "Tender vareniki made with thin dough and a juicy filling of potatoes and aromatic mushrooms. The rich, deep flavor and warm forest aroma make this dish especially cozy and appetizing.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 140 }],
     image: "/products/vareniki-potato-mushrooms.jpg",
   },
   {
     id: "manti",
-    title: "Манты",
+    title: {
+      ru: "Манты",
+      en: "Manti",
+    },
     category: "frozen",
-    description: "Сочные манты в тонком, эластичном тесте с насыщенной мясной начинкой. Приготовленные на пару, они сохраняют естественную сочность, глубокий вкус и аппетитный аромат традиционного татарского блюда.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Сочные манты в тонком, эластичном тесте с насыщенной мясной начинкой. Приготовленные на пару, они сохраняют естественную сочность, глубокий вкус и аппетитный аромат традиционного татарского блюда.",
+      en: "Juicy manti in thin, elastic dough with a rich meat filling. Steamed to perfection, they keep their natural juiciness, deep flavor, and appetizing aroma of a traditional Tatar dish.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/manti.jpg",
   },
   {
     id: "peppers",
-    title: "Фаршированные перцы",
+    title: {
+      ru: "Фаршированные перцы",
+      en: "Stuffed peppers",
+    },
     category: "frozen",
-    description: "Мягкие фаршированные перцы с щедрой мясной начинкой и рассыпчатым рисом — сытное домашнее блюдо с ярким, выразительным вкусом.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Мягкие фаршированные перцы с щедрой мясной начинкой и рассыпчатым рисом — сытное домашнее блюдо с ярким, выразительным вкусом.",
+      en: "Tender stuffed peppers with a generous meat filling and fluffy rice — a hearty homemade dish with a bright, expressive flavor.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/peppers.jpg",
   },
   {
     id: "golubci",
-    title: "Голубцы",
+    title: {
+      ru: "Голубцы",
+      en: "Cabbage rolls",
+    },
     category: "frozen",
-    description: "Нежные голубцы с сочной мясной начинкой и рассыпчатым рисом, аккуратно завернутые в мягкие капустные листья — классика домашней кухни в аппетитном исполнении.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Нежные голубцы с сочной мясной начинкой и рассыпчатым рисом, аккуратно завернутые в мягкие капустные листья — классика домашней кухни в аппетитном исполнении.",
+      en: "Tender cabbage rolls with juicy meat filling and fluffy rice, carefully wrapped in soft cabbage leaves — a home-cooking classic in an appetizing form.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/golubci.jpg",
   },
   {
     id: "sirniki",
-    title: "Сырники",
+    title: {
+      ru: "Сырники",
+      en: "Syrniki",
+    },
     category: "frozen",
-    description: "Воздушные сырники из натурального творога, обжаренные до золотистой корочки — классический завтрак с мягким сливочным вкусом.",
-    prices: [
-      { label: "кг", price: 220 }
-    ],
+    description: {
+      ru: "Воздушные сырники из натурального творога, обжаренные до золотистой корочки — классический завтрак с мягким сливочным вкусом.",
+      en: "Fluffy syrniki made from natural cottage cheese, fried until golden brown — a classic breakfast with a soft creamy taste.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 220 }],
     image: "/products/sirniki.jpg",
   },
   {
     id: "pancakes-meat",
-    title: "Блины с мясом",
+    title: {
+      ru: "Блины с мясом",
+      en: "Meat crepes",
+    },
     category: "frozen",
-    description: "Румяные блины с ароматной мясной начинкой — сытное и аппетитное блюдо, которое отлично подойдёт для плотного перекуса.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Румяные блины с ароматной мясной начинкой — сытное и аппетитное блюдо, которое отлично подойдёт для плотного перекуса.",
+      en: "Golden crepes with a flavorful meat filling — a hearty and appetizing dish, perfect for a satisfying snack.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-meat.jpg",
   },
   {
     id: "pancakes-cheese-ham",
-    title: "Блины с ветчиной и сыром",
+    title: {
+      ru: "Блины с ветчиной и сыром",
+      en: "Ham and cheese crepes",
+    },
     category: "frozen",
-    description: "Нежные блины с сочной ветчиной и тянущимся сыром — сытное и аппетитное блюдо с гармоничным сочетанием вкусов.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Нежные блины с сочной ветчиной и тянущимся сыром — сытное и аппетитное блюдо с гармоничным сочетанием вкусов.",
+      en: "Tender crepes with juicy ham and melted cheese — a hearty and appetizing dish with a harmonious combination of flavors.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-cheese-ham.jpg",
   },
   {
     id: "pancakes-chicken",
-    title: "Блины с курицей",
+    title: {
+      ru: "Блины с курицей",
+      en: "Chicken crepes",
+    },
     category: "frozen",
-    description: "Нежные блины с куриной начинкой — лёгкое, питательное блюдо с мягким вкусом, любимое и взрослыми, и детьми.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Нежные блины с куриной начинкой — лёгкое, питательное блюдо с мягким вкусом, любимое и взрослыми, и детьми.",
+      en: "Tender crepes with chicken filling — a light and nourishing dish with a mild taste, loved by both adults and children.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-chicken.jpg",
   },
   {
     id: "pancakes-potato-mushrooms",
-    title: "Блины с картофелем и грибами",
+    title: {
+      ru: "Блины с картофелем и грибами",
+      en: "Potato and mushroom crepes",
+    },
     category: "frozen",
-    description: "Румяные блины с картофелем и грибами — аппетитный вариант для плотного обеда или перекуса.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Румяные блины с картофелем и грибами — аппетитный вариант для плотного обеда или перекуса.",
+      en: "Golden crepes with potatoes and mushrooms — an appetizing option for a hearty lunch or snack.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-potato-mushrooms.jpg",
   },
   {
     id: "pancakes-curd",
-    title: "Блины с творогом",
+    title: {
+      ru: "Блины с творогом",
+      en: "Cottage cheese crepes",
+    },
     category: "frozen",
-    description: "Мягкие блины с натуральным творогом — гармоничное сочетание нежности, пользы и домашнего вкуса.",
-    prices: [
-      { label: "кг", price: 180 }
-    ],
+    description: {
+      ru: "Мягкие блины с натуральным творогом — гармоничное сочетание нежности, пользы и домашнего вкуса.",
+      en: "Soft crepes with natural cottage cheese — a harmonious combination of tenderness, goodness, and homemade taste.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-curd.jpg",
   },
   {
     id: "pancakes-apple",
-    title: "Блины с яблоком",
+    title: {
+      ru: "Блины с яблоком",
+      en: "Apple crepes",
+    },
     category: "frozen",
-    description: "Нежные блины с яблоками — тёплый и уютный вариант с приятной кисло-сладкой ноткой.",
-    prices: [
-      { label: "кг", price: 150 }
-    ],
+    description: {
+      ru: "Нежные блины с яблоками — тёплый и уютный вариант с приятной кисло-сладкой ноткой.",
+      en: "Tender crepes with apples — a warm and cozy option with a pleasant sweet-and-sour note.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 150 }],
     image: "/products/pancakes-apple.jpg",
   },
   {
     id: "pie-cabbage-egg",
-    title: "Пирожок с капустой и яйцом",
+    title: {
+      ru: "Пирожок с капустой и яйцом",
+      en: "Pie with cabbage and egg",
+    },
     category: "bakery",
-    description: "Румяный пирожок с сочной начинкой из капусты и яйца в мягком тесте — уютная классика домашней кухни.",
-    prices: [
-      { label: "шт", price: 20 }
-    ],
+    description: {
+      ru: "Румяный пирожок с сочной начинкой из капусты и яйца в мягком тесте — уютная классика домашней кухни.",
+      en: "Golden-brown pie with a juicy cabbage and egg filling in soft dough — a cozy classic of home cooking.",
+    },
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
     image: "/products/pie-cabbage-egg.jpg",
   },
   {
     id: "pie-potato",
-    title: "Пирожок с картофелем",
+    title: {
+      ru: "Пирожок с картофелем",
+      en: "Pie with potato",
+    },
     category: "bakery",
-    description: "Золотистый пирожок с ароматной картофельной начинкой в мягком тесте — сытная классика домашней кухни.",
-    prices: [
-      { label: "шт", price: 20 }
-    ],
+    description: {
+      ru: "Золотистый пирожок с ароматной картофельной начинкой в мягком тесте — сытная классика домашней кухни.",
+      en: "Golden pie with an aromatic potato filling in soft dough — a hearty classic of home cooking.",
+    },
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
     image: "/products/pie-potato.jpg",
   },
   {
     id: "pie-potato-mushrooms",
-    title: "Пирожок с картофелем и грибами",
+    title: {
+      ru: "Пирожок с картофелем и грибами",
+      en: "Pie with potato and mushrooms",
+    },
     category: "bakery",
-    description: "Румяный пирожок с картофелем и ароматными грибами в мягком тесте — уютная классика домашней кухни.",
-    prices: [
-      { label: "шт", price: 20 }
-    ],
+    description: {
+      ru: "Румяный пирожок с картофелем и ароматными грибами в мягком тесте — уютная классика домашней кухни.",
+      en: "Golden-brown pie with potatoes and aromatic mushrooms in soft dough — a cozy classic of home cooking.",
+    },
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
     image: "/products/pie-potato-mushrooms.jpg",
   },
   {
     id: "echpochmak",
-    title: "Эчпочмак",
+    title: {
+      ru: "Эчпочмак",
+      en: "Echpochmak",
+    },
     category: "bakery",
-    description: "Традиционный татарский треугольный пирожок из тонкого теста с сочной начинкой из говядины, картофеля и лука, запечённый до румяной корочки.",
-    prices: [
-      { label: "шт", price: 30 }
-    ],
+    description: {
+      ru: "Традиционный татарский треугольный пирожок из тонкого теста с сочной начинкой из говядины, картофеля и лука, запечённый до румяной корочки.",
+      en: "Traditional Tatar triangular pastry made with thin dough and a juicy filling of beef, potatoes, and onion, baked until golden brown.",
+    },
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 30 }],
     image: "/products/echpochmak.jpg",
   },
   {
     id: "pie-apple-cinnamon",
-    title: "Пирожок с яблоком и корицей",
+    title: {
+      ru: "Пирожок с яблоком и корицей",
+      en: "Pie with apple and cinnamon",
+    },
     category: "bakery",
-    description: "Золотистый пирожок с нежными яблоками и пряной корицей в мягком тесте — ароматное лакомство с уютным домашним вкусом.",
-    prices: [
-      { label: "шт", price: 20 }
-    ],
+    description: {
+      ru: "Золотистый пирожок с нежными яблоками и пряной корицей в мягком тесте — ароматное лакомство с уютным домашним вкусом.",
+      en: "Golden pie with tender apples and spicy cinnamon in soft dough — a fragrant treat with a cozy homemade taste.",
+    },
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
     image: "/products/pie-apple-cinnamon.jpg",
   },
   {
     id: "kish-losos",
-    title: "Киш с лососем и брокколи",
+    title: {
+      ru: "Киш с лососем и брокколи",
+      en: "Quiche with salmon and broccoli",
+    },
     category: "bakery",
-    description: "Нежный киш с лососем и брокколи: хрустящее песочное тесто, сливочная заливка и сочный лосось с яркой зеленью брокколи. Богатый вкус, идеальный баланс и никаких компромиссов.",
-    prices: [
-      { label: "шт", price: 300 }
-    ],
+    description: {
+      ru: "Нежный киш с лососем и брокколи: хрустящее песочное тесто, сливочная заливка и сочный лосось с яркой зеленью брокколи. Богатый вкус, идеальный баланс и никаких компромиссов.",
+      en: "Delicate quiche with salmon and broccoli: crispy shortcrust pastry, creamy filling, and juicy salmon with vibrant green broccoli. Rich flavor, perfect balance, and no compromises.",
+    },
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 300 }],
     image: "/products/kish-losos.jpg",
   },
   {
     id: "cake-carrot",
-    title: "Морковный торт",
+    title: {
+      ru: "Морковный торт",
+      en: "Carrot cake",
+    },
     category: "desserts",
-    description: "Сочный пряный морковный бисквит с нежным сливочным кремом, тающий во рту с первого кусочка.",
+    description: {
+      ru: "Сочный пряный морковный бисквит с нежным сливочным кремом, тающий во рту с первого кусочка.",
+      en: "Moist spiced carrot sponge cake with delicate cream cheese frosting that melts in your mouth from the very first bite.",
+    },
     prices: [
-      { label: "2,5 кг", price: 450 },
-      { label: "порция", price: 25 }
+      { label: { ru: "2,5 кг", en: "2.5 kg" }, price: 450 },
+      { label: { ru: "порция", en: "portion" }, price: 25 },
     ],
     image: "/products/cake-carrot.jpg",
   },
   {
     id: "sharlik",
-    title: "Шоколадный шарлик",
+    title: {
+      ru: "Шоколадный шарлик",
+      en: "Chocolate sharlik",
+    },
     category: "desserts",
-    description: "Воздушный шоколадный бисквит с густым, тающим кремом из тёмного шоколада, щедро покрытый кокосовой стружкой.",
+    description: {
+      ru: "Воздушный шоколадный бисквит с густым, тающим кремом из тёмного шоколада, щедро покрытый кокосовой стружкой.",
+      en: "Airy chocolate sponge cake with rich melting dark chocolate cream, generously coated with coconut flakes.",
+    },
     prices: [
-      { label: "2,5 кг", price: 450 },
-      { label: "порция", price: 25 }
+      { label: { ru: "2,5 кг", en: "2.5 kg" }, price: 450 },
+      { label: { ru: "порция", en: "portion" }, price: 25 },
     ],
     image: "/products/sharlik.jpg",
   },
   {
     id: "pickled-cabbage",
-    title: "Квашеная капуста",
+    title: {
+      ru: "Квашеная капуста",
+      en: "Sauerkraut",
+    },
     category: "salads",
-    description: "Хрустящая квашеная капуста с яркой кислинкой и натуральным вкусом — полезная закуска, богатая витаминами и пробиотиками.",
-    prices: [
-      { label: "кг", price: 70 }
-    ],
+    description: {
+      ru: "Хрустящая квашеная капуста с яркой кислинкой и натуральным вкусом — полезная закуска, богатая витаминами и пробиотиками.",
+      en: "Crunchy sauerkraut with a bright tang and natural flavor — a healthy appetizer rich in vitamins and probiotics.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 70 }],
     image: "/products/pickled-cabbage.jpg",
   },
 ];

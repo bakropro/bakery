@@ -686,3 +686,35 @@ body,
   font-weight: 700;
   line-height: 1;
 }
+
+.catalog-top-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.catalog-language-switcher {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.catalog-language-btn {
+  border: none;
+  background: transparent;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.catalog-language-btn.active {
+  background: #111;
+  color: #fff;
+}

@@ -2,32 +2,45 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { products } from "../products";
 import { CatalogCard } from "../components/CatalogCard";
-import { type CartItem, type Product, type PriceOption } from "../cartStorage";
+import { type CartItem, type Product, type PriceOption, type Lang } from "../cartStorage";
+import { t } from "../i18n";
 
 type Props = {
   cart: CartItem[];
   addToCart: (p: Product, o: PriceOption) => void;
   setKeyboardOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  lang: Lang;
+  setLang: React.Dispatch<React.SetStateAction<Lang>>;
 };
 
-const categories = [
-  { key: "all", label: "Все" },
-  { key: "frozen", label: "Заморозка" },
-  { key: "bakery", label: "Выпечка" },
-  { key: "desserts", label: "Десерты" },
-  { key: "salads", label: "Салаты" },
-] as const;
-
-export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
+export function CatalogPage({
+  cart,
+  addToCart,
+  setKeyboardOpen,
+  lang,
+  setLang,
+}: Props) {
   const navigate = useNavigate();
+
+  const categories = [
+    { key: "all", label: t(lang, "all") },
+    { key: "frozen", label: t(lang, "frozen") },
+    { key: "bakery", label: t(lang, "bakery") },
+    { key: "desserts", label: t(lang, "desserts") },
+    { key: "salads", label: t(lang, "salads") },
+  ] as const;
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<(typeof categories)[number]["key"]>("all");
   const [searchFocused, setSearchFocused] = useState(false);
 
   const filtered = products
-    .filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
-    .filter((p) => (category === "all" ? true : p.category === category));
+    .filter((p) =>
+      p.title[lang].toLowerCase().includes(query.toLowerCase())
+    )
+    .filter((p) =>
+      category === "all" ? true : p.category === category
+    );
 
   const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce(
@@ -37,10 +50,30 @@ export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
 
   return (
     <div className="container">
+      <div className="catalog-top-row">
+        <div className="catalog-language-switcher">
+          <button
+            type="button"
+            className={"catalog-language-btn" + (lang === "ru" ? " active" : "")}
+            onClick={() => setLang("ru")}
+          >
+            RU
+          </button>
+
+          <button
+            type="button"
+            className={"catalog-language-btn" + (lang === "en" ? " active" : "")}
+            onClick={() => setLang("en")}
+          >
+            EN
+          </button>
+        </div>
+      </div>
+
       <div style={{ marginBottom: 16 }}>
         <input
           className="input"
-          placeholder="Поиск"
+          placeholder={t(lang, "search")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => {
@@ -76,6 +109,7 @@ export function CatalogPage({ cart, addToCart, setKeyboardOpen }: Props) {
             product={p}
             cart={cart}
             addToCart={addToCart}
+            lang={lang}
           />
         ))}
       </div>

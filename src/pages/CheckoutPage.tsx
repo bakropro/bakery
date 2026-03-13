@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { type CartItem } from "../cartStorage";
 import { useNavigate } from "react-router-dom";
 import { KeyboardHideButton } from "../components/KeyboardHideButton";
+import { t, type Lang } from "../i18n";
 
 type Props = {
   cart: CartItem[];
   clearCart: () => void;
   keyboardOpen?: boolean;
   setKeyboardOpen?: (open: boolean) => void;
+  lang: Lang;
 };
 
 export function CheckoutPage({
@@ -15,6 +17,7 @@ export function CheckoutPage({
   clearCart,
   keyboardOpen,
   setKeyboardOpen,
+  lang,
 }: Props) {
   const navigate = useNavigate();
 
@@ -73,14 +76,14 @@ export function CheckoutPage({
   }
 
   function submit() {
-    if (!name.trim()) return alert("Введите имя");
+    if (!name.trim()) return alert(t(lang, "enterName"));
 
     if (phone.length !== 9) {
-      return alert("Введите телефон в формате +46 xxx xxx xxx");
+      return alert(t(lang, "enterPhone"));
     }
 
     if (deliveryType === "delivery" && !address.trim()) {
-      return alert("Введите адрес доставки");
+      return alert(t(lang, "enterAddress"));
     }
 
     const order = {
@@ -102,15 +105,15 @@ export function CheckoutPage({
     })
       .then(async (res) => {
         if (!res.ok) {
-          throw new Error("Ошибка отправки заказа");
+          throw new Error(t(lang, "orderError"));
         }
 
-        alert("Заказ отправлен!");
+        alert(t(lang, "orderSent"));
         clearCart();
         navigate("/");
       })
       .catch(() => {
-        alert("Ошибка отправки заказа");
+        alert(t(lang, "orderError"));
       });
   }
 
@@ -120,13 +123,13 @@ export function CheckoutPage({
   return (
     <div className="checkout-page">
       <div className="header">
-        <div className="logo">Оформление заказа</div>
+        <div className="logo">{t(lang, "checkout")}</div>
       </div>
 
       <div className="checkout-form">
         <div className="form-fields">
           <div className="form-block">
-            <label className="label">Имя *</label>
+            <label className="label">{t(lang, "name")}</label>
             <input
               className="input"
               value={name}
@@ -137,7 +140,7 @@ export function CheckoutPage({
           </div>
 
           <div className="form-block">
-            <label className="label">Телефон *</label>
+            <label className="label">{t(lang, "phone")}</label>
             <input
               className="input"
               type="tel"
@@ -152,7 +155,7 @@ export function CheckoutPage({
           </div>
 
           <div className="form-block">
-            <label className="label">Telegram username</label>
+            <label className="label">{t(lang, "telegramUsername")}</label>
             <input
               className="input"
               value={telegram}
@@ -163,7 +166,7 @@ export function CheckoutPage({
           </div>
 
           <div className="form-block">
-            <label className="label">Почта</label>
+            <label className="label">{t(lang, "email")}</label>
             <input
               className="input"
               value={email}
@@ -174,7 +177,7 @@ export function CheckoutPage({
           </div>
 
           <div className="form-block">
-            <label className="label">Комментарий</label>
+            <label className="label">{t(lang, "comment")}</label>
             <input
               className="input"
               value={comment}
@@ -191,7 +194,7 @@ export function CheckoutPage({
                 checked={deliveryType === "pickup"}
                 onChange={() => setDeliveryType("pickup")}
               />
-              Самовывоз
+              {t(lang, "pickup")}
             </label>
           </div>
 
@@ -202,13 +205,13 @@ export function CheckoutPage({
                 checked={deliveryType === "delivery"}
                 onChange={() => setDeliveryType("delivery")}
               />
-              Доставка
+              {t(lang, "delivery")}
             </label>
           </div>
 
           {deliveryType === "delivery" && (
             <div className="form-block">
-              <label className="label">Адрес *</label>
+              <label className="label">{t(lang, "address")}</label>
               <input
                 className="input"
                 value={address}
@@ -222,7 +225,9 @@ export function CheckoutPage({
       </div>
 
       <div style={{ padding: "0 14px", marginTop: 20, paddingBottom: 60 }}>
-        <div className="checkout-total">Итого: {total} kr</div>
+        <div className="checkout-total">
+          {t(lang, "total")}: {total} kr
+        </div>
 
         {!keyboardOpen && (
           <button
@@ -230,7 +235,7 @@ export function CheckoutPage({
             onClick={submit}
             style={{ width: "100%", marginTop: 10 }}
           >
-            Оформить заказ
+            {t(lang, "placeOrder")}
           </button>
         )}
       </div>
