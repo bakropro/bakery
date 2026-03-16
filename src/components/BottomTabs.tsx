@@ -15,8 +15,8 @@ export function BottomTabs({ lang }: Props) {
           "bottom-tab" + (isActive ? " active" : "")
         }
       >
-        🍰
-        <span>{t(lang, "menu")}</span>
+        <span className="tab-icon">🍰</span>
+        <span className="tab-text">{t(lang, "menu")}</span>
       </NavLink>
 
       <NavLink
@@ -25,8 +25,8 @@ export function BottomTabs({ lang }: Props) {
           "bottom-tab" + (isActive ? " active" : "")
         }
       >
-        🛒
-        <span>{t(lang, "cart")}</span>
+        <span className="tab-icon">🛒</span>
+        <span className="tab-text">{t(lang, "cart")}</span>
       </NavLink>
     </div>
   );
