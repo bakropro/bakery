@@ -92,7 +92,7 @@ export function CheckoutPage({
       telegram,
       email,
       deliveryType,
-      address,
+      address: deliveryType === "delivery" ? address : "",
       comment,
       cart,
       total,

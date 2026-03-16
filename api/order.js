@@ -50,9 +50,8 @@ export default async function handler(req, res) {
       const label = getLocalized(item.priceOption.label);
       const qty = item.quantity;
       const price = item.priceOption.price;
-      const lineTotal = price * qty;
 
-      text += `• ${ title } — ${ price } kr / ${ label } × ${ qty }\n`;
+      text += `• ${ title }: ${ price } kr / ${ label } × ${ qty }\n`;
     }
 
     text += `\n💰 Итого: ${ order.total } kr`;
