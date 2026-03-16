@@ -670,7 +670,7 @@ body,
 .catalog-cart-floating {
   position: fixed;
   right: 14px;
-  bottom: calc(76px + env(safe-area-inset-bottom));
+  bottom: calc(env(safe-area-inset-bottom) + 96px);
   z-index: 900;
 
   padding: 10px 14px;
