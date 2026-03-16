@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       const price = item.priceOption.price;
       const lineTotal = price * qty;
 
-      text += `• ${ title } — ${ price } kr / ${ label } × ${ qty } = ${ lineTotal } kr\n`;
+      text += `• ${ title } — ${ price } kr / ${ label } × ${ qty }\n`;
     }
 
     text += `\n💰 Итого: ${ order.total } kr`;
