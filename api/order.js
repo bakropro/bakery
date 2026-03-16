@@ -1,4 +1,4 @@
-import { redis } from "../lib/redis";
+import { redis } from "../src/components/redis";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
