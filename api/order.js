@@ -1,3 +1,5 @@
+import { redis } from "../lib/redis";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -19,23 +21,26 @@ export default async function handler(req, res) {
     const deliveryText =
       order.deliveryType === "delivery" ? "Доставка" : "Самовывоз";
 
-    let text = "🧁 Новый заказ:\n\n";
+    const currentCounter = await redis.incr("order_counter");
+    const orderNumber = currentCounter - 1;
 
-    text += `Имя: ${order.name}\n`;
-    text += `Телефон: ${order.phone}\n`;
-    text += `Telegram: ${order.telegram || "-"}\n`;
-    text += `Способ: ${deliveryText}\n`;
+    let text = `🧁 Новый заказ #${ orderNumber }: \n\n`;
+
+    text += `Имя: ${ order.name } \n`;
+    text += `Телефон: ${ order.phone } \n`;
+    text += `Telegram: ${ order.telegram || "-" } \n`;
+    text += `Способ: ${ deliveryText } \n`;
+
+    if (order.address) {
+      text += `Адрес: ${ order.address } \n`;
+    }
 
     if (order.email) {
-      text += `Почта: ${order.email}\n`;
+      text += `Почта: ${ order.email } \n`;
     }
 
     if (order.comment) {
-      text += `Комментарий: ${order.comment}\n`;
-    }
-
-    if (order.address) {
-      text += `Адрес: ${order.address}\n`;
+      text += `Комментарий: ${ order.comment } \n`;
     }
 
     text += "\n📦 Заказ:\n";
@@ -45,16 +50,17 @@ export default async function handler(req, res) {
       const label = getLocalized(item.priceOption.label);
       const qty = item.quantity;
       const price = item.priceOption.price;
+      const lineTotal = price * qty;
 
-      text += `• ${title} — ${price} kr / ${label} × ${qty}\n`;
+      text += `• ${ title } — ${ price } kr / ${ label } × ${ qty } = ${ lineTotal } kr\n`;
     }
 
-    text += `\n💰 Итого: ${order.total} kr`;
+    text += `\n💰 Итого: ${ order.total } kr`;
 
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
     for (const chatId of ADMIN_CHAT_IDS) {
-      await fetch(url, {
+      const tgRes = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,9 +70,19 @@ export default async function handler(req, res) {
           text,
         }),
       });
+
+      const tgData = await tgRes.json();
+
+      if (!tgRes.ok || !tgData.ok) {
+        console.error("Telegram API error:", tgData);
+        return res.status(500).json({
+          error: "Telegram send failed",
+          details: tgData,
+        });
+      }
     }
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, orderNumber });
   } catch (error) {
     console.error(error);
 
