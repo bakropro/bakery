@@ -36,7 +36,7 @@ export function CartPage({
         }}
       >
         <button
-          className="button button-secondary"
+          className="cart-back-btn"
           onClick={() => navigate("/")}
         >
           ← {t(lang, "back")}
