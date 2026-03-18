@@ -1,5 +1,5 @@
 import { type CartItem, type Product, type PriceOption } from "../cartStorage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { t, type Lang } from "../i18n";
 
 type Props = {
@@ -18,6 +18,8 @@ export function CartPage({
   clearCart,
   lang,
 }: Props) {
+  const navigate = useNavigate();
+
   const total = cart.reduce(
     (sum, i) => sum + i.priceOption.price * i.quantity,
     0
@@ -25,8 +27,24 @@ export function CartPage({
 
   return (
     <div className="container">
-      <div className="header">
-        <div className="logo">{t(lang, "cart")} 🛒</div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          marginBottom: 20,
+        }}
+      >
+        <button
+          className="button button-secondary"
+          onClick={() => navigate("/")}
+        >
+          ← {t(lang, "back")}
+        </button>
+
+        <div className="logo" style={{ margin: 0 }}>
+          {t(lang, "cart")} 🛒
+        </div>
       </div>
 
       {cart.length === 0 ? (

@@ -25,7 +25,7 @@ export default async function handler(req, res) {
                     },
                     body: JSON.stringify({
                         chat_id: chatId,
-                        text: "Добро пожаловать в Elvira Food Studio \nОткройте магазин и оформите заказ.\n\nWelcome to Elvira Food Studio\nOpen the store and place the order.",
+                        text: "Добро пожаловать в Elvira Food Studio!\nОткройте магазин и оформите заказ.\n\nWelcome to Elvira Food Studio!\nOpen the store and place the order.",
                         reply_markup: {
                             inline_keyboard: [
                                 [
