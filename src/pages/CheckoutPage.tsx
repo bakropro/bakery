@@ -48,39 +48,10 @@ export function CheckoutPage({
     0
   );
 
-  function formatSwedishPhone(value: string) {
-    const digits = value.replace(/\D/g, "").slice(0, 9);
-
-    const part1 = digits.slice(0, 3);
-    const part2 = digits.slice(3, 6);
-    const part3 = digits.slice(6, 9);
-
-    let formatted = "+46";
-
-    if (part1) formatted += " " + part1;
-    if (part2) formatted += " " + part2;
-    if (part3) formatted += " " + part3;
-
-    return formatted;
-  }
-
-  function handlePhoneChange(rawValue: string) {
-    let digits = rawValue.replace(/\D/g, "");
-
-    if (digits.startsWith("46")) {
-      digits = digits.slice(2);
-    }
-
-    digits = digits.slice(0, 9);
-    setPhone(digits);
-  }
-
   function submit() {
     if (!name.trim()) return alert(t(lang, "enterName"));
 
-    if (phone.length !== 9) {
-      return alert(t(lang, "enterPhone"));
-    }
+    if (!phone.trim()) return alert(t(lang, "phone"));
 
     if (deliveryType === "delivery" && !address.trim()) {
       return alert(t(lang, "enterAddress"));
@@ -88,7 +59,7 @@ export function CheckoutPage({
 
     const order = {
       name,
-      phone: formatSwedishPhone(phone),
+      phone,
       telegram,
       email,
       deliveryType,
@@ -144,13 +115,11 @@ export function CheckoutPage({
             <input
               className="input"
               type="tel"
-              inputMode="numeric"
               autoComplete="tel"
-              placeholder="+46 123 456 789"
-              value={formatSwedishPhone(phone)}
+              value={phone}
               onFocus={onFocus}
               onBlur={onBlur}
-              onChange={(e) => handlePhoneChange(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
 
