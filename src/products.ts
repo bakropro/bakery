@@ -2,6 +2,38 @@ import { type Product } from "./cartStorage";
 
 export const products: Product[] = [
   {
+    id: "meatballs-fried",
+    title: {
+      ru: "Мясные фрикадельки обжаренные",
+      en: "Fried meatballs",
+    },
+    category: "frozen",
+    description: {
+      ru: "Сочные фрикадельки из отборного мяса, обжаренные до аппетитной корочки. Прекрасный выбор для быстрого и вкусного обеда.",
+      en: "Juicy meatballs made from premium meat, pan-fried to a golden crust. A perfect choice for a quick and satisfying meal.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 220 }
+    ],
+    image: "/products/meatballs-fried.jpg",
+  },
+  {
+    id: "meatballs-raw",
+    title: {
+      ru: "Мясные фрикадельки (не обжаренные)",
+      en: "Raw meatballs",
+    },
+    category: "frozen",
+    description: {
+      ru: "Сочные фрикадельки из отборного мяса, без обжарки — полностью готовы к приготовлению. Готовьте их по своему вкусу и создавайте идеальное домашнее блюдо.",
+      en: "Juicy meatballs made from premium meat, uncooked and ready to prepare. Cook them your way and create the perfect homemade dish.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 180 }
+    ],
+    image: "/products/meatballs-raw.jpg",
+  },
+  {
     id: "pelmeni-home",
     title: {
       ru: "Пельмени домашние",
