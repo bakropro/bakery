@@ -2,6 +2,54 @@ import { type Product } from "./cartStorage";
 
 export const products: Product[] = [
   {
+    id: "borscht",
+    title: {
+      ru: "Борщ",
+      en: "Borscht",
+    },
+    category: "soups",
+    description: {
+      ru: "Традиционный борщ с богатым вкусом и ярким свекольным оттенком. Сытный, ароматный и по-настоящему домашний.",
+      en: "Traditional borscht with a rich flavor and vibrant beetroot color. Hearty, aromatic, and truly homemade.",
+    },
+    prices: [
+      { label: { ru: "литр", en: "liter" }, price: 100 }
+    ],
+    image: "/products/borscht.jpg",
+  },
+  {
+    id: "home-cutlets-fried",
+    title: {
+      ru: "Домашние котлеты",
+      en: "Homemade cutlets",
+    },
+    category: "frozen",
+    description: {
+      ru: "Сочные обжаренные домашние котлеты с аппетитной золотистой корочкой.",
+      en: "Juicy homemade cutlets, pan-fried to a delicious golden crust.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 220 }
+    ],
+    image: "/products/home-cutlets-fried.jpg",
+  },
+  {
+    id: "home-cutlets-raw",
+    title: {
+      ru: "Котлеты (не обжаренные)",
+      en: "Raw homemade cutlets",
+    },
+    category: "frozen",
+    description: {
+      ru: "Домашние котлеты глубокой заморозки, сохраняющие сочность и натуральный вкус. Удобно хранить, легко готовить, вкусно кушать.",
+      en: "Deep-frozen homemade cutlets that preserve their juiciness and natural flavor. Easy to store, simple to cook, and delicious to enjoy.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 180 }
+    ],
+    image: "/products/home-cutlets-raw.jpg",
+  },
+  {
     id: "meatballs-fried",
     title: {
       ru: "Мясные фрикадельки обжаренные",
