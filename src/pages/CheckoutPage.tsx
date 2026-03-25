@@ -57,10 +57,13 @@ export function CheckoutPage({
       return alert(t(lang, "enterAddress"));
     }
 
+    const telegramUserId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id ?? null;
+
     const order = {
       name,
       phone,
       telegram,
+      telegramUserId,
       email,
       deliveryType,
       address: deliveryType === "delivery" ? address : "",

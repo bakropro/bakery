@@ -9,7 +9,9 @@ export default async function handler(req, res) {
     const order = req.body;
 
     const BOT_TOKEN = process.env.BOT_TOKEN;
-    const ADMIN_CHAT_IDS = process.env.ADMIN_CHAT_IDS.split(",");
+    const ADMIN_CHAT_IDS = process.env.ADMIN_CHAT_IDS.split(",").map((id) =>
+      id.trim()
+    );
 
     function getLocalized(value) {
       if (typeof value === "string") return value;
@@ -24,23 +26,23 @@ export default async function handler(req, res) {
     const currentCounter = await redis.incr("order_counter");
     const orderNumber = currentCounter - 1;
 
-    let text = `🧁 Новый заказ #${ orderNumber }: \n\n`;
+    let text = `🧁 Новый заказ #${orderNumber}\n\n`;
 
-    text += `Имя: ${ order.name } \n`;
-    text += `Телефон: ${ order.phone } \n`;
-    text += `Telegram: ${ order.telegram || "-" } \n`;
-    text += `Способ: ${ deliveryText } \n`;
+    text += `Имя: ${order.name}\n`;
+    text += `Телефон: ${order.phone}\n`;
+    text += `Telegram: ${order.telegram || "-"}\n`;
+    text += `Способ: ${deliveryText}\n`;
 
     if (order.address) {
-      text += `Адрес: ${ order.address } \n`;
+      text += `Адрес: ${order.address}\n`;
     }
 
     if (order.email) {
-      text += `Почта: ${ order.email } \n`;
+      text += `Почта: ${order.email}\n`;
     }
 
     if (order.comment) {
-      text += `Комментарий: ${ order.comment } \n`;
+      text += `Комментарий: ${order.comment}\n`;
     }
 
     text += "\n📦 Заказ:\n";
@@ -50,11 +52,23 @@ export default async function handler(req, res) {
       const label = getLocalized(item.priceOption.label);
       const qty = item.quantity;
       const price = item.priceOption.price;
+      const lineTotal = price * qty;
 
-      text += `• ${ title }: ${ price } kr / ${ label } × ${ qty }\n`;
+      text += `• ${title} — ${price} kr / ${label} × ${qty} = ${lineTotal} kr\n`;
     }
 
-    text += `\n💰 Итого: ${ order.total } kr`;
+    text += `\n💰 Итого: ${order.total} kr`;
+
+    // сохраняем заказ в Redis, чтобы bot.js мог открыть диалог
+    const orderMeta = {
+      orderNumber,
+      customerChatId: String(order.telegramUserId || ""),
+      customerName: order.name || "",
+      customerTelegram: order.telegram || "",
+      createdAt: Date.now(),
+    };
+
+    await redis.set(`order:${orderNumber}`, JSON.stringify(orderMeta));
 
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
@@ -65,8 +79,24 @@ export default async function handler(req, res) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          chat_id: chatId.trim(),
+          chat_id: chatId,
           text,
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: "Связаться с покупателем",
+                  callback_data: `contact:${orderNumber}`,
+                },
+              ],
+              [
+                {
+                  text: "Завершить диалог",
+                  callback_data: `end:${orderNumber}`,
+                },
+              ],
+            ],
+          },
         }),
       });
 
