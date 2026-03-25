@@ -35,7 +35,7 @@ export const translations = {
     back: "Назад",
     add: "Добавить",
     soups: "Супы",
-    semifinished: "Полуфаьрикаты"
+    semifinished: "Полуфабрикаты"
     
   },
 
