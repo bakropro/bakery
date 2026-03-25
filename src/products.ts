@@ -2,6 +2,86 @@ import { type Product } from "./cartStorage";
 
 export const products: Product[] = [
   {
+    id: "chicken-minced-meat",
+    title: {
+      ru: "Фарш куриный",
+      en: "Chicken minced meat",
+    },
+    category: "semifinished",
+    description: {
+      ru: "Свежий фарш, приготовленный вручную из куриного мяса с добавлением лука. Идеальная основа для любимых домашних блюд.",
+      en: "Fresh minced meat made by hand from chicken with added onions. A perfect base for your favorite homemade dishes.",
+    },
+    prices: [
+      { label: { ru: "1 кг", en: "1 kg" }, price: 180 }
+    ],
+    image: "/products/chicken-minced-meat.jpg",
+  },
+  {
+    id: "beef-minced-meat",
+    title: {
+      ru: "Фарш из говядины",
+      en: "Beef minced meat",
+    },
+    category: "semifinished",
+    description: {
+      ru: "Свежий фарш, приготовленный вручную из отборной говядины с луком. Идеальная основа для любимых домашних блюд.",
+      en: "Fresh minced meat made by hand from selected beef with onions. A perfect base for your favorite homemade dishes.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 200 }
+    ],
+    image: "/products/beef-minced-meat.jpg",
+  },
+  {
+    id: "homemade-minced-meat",
+    title: {
+      ru: "«Домашний» фарш",
+      en: "Homemade minced meat",
+    },
+    category: "semifinished",
+    description: {
+      ru: "Свежий фарш, приготовленный вручную из отборной говядины и свинины с луком. Идеальная основа для любимых домашних блюд.",
+      en: "Fresh minced meat made by hand from selected beef and pork with onions. A perfect base for your favorite homemade dishes.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 180 }
+    ],
+    image: "/products/homemade-minced-meat.jpg",
+  },
+  {
+    id: "homemade-noodles",
+    title: {
+      ru: "Лапша ручной работы",
+      en: "Handmade noodles",
+    },
+    category: "semifinished",
+    description: {
+      ru: "Домашняя лапша ручной работы, бережно высушенная для сохранения вкуса. Основа для настоящих, домашних супов. Незаменимый запас для тёплых семейных обедов.",
+      en: "Homemade handmade noodles, carefully dried to preserve their flavor. A perfect base for authentic homemade soups. An essential staple for warm family meals.",
+    },
+    prices: [
+      { label: { ru: "500 г", en: "500 g" }, price: 100 }
+    ],
+    image: "/products/homemade-noodles.jpg",
+  },
+  {
+    id: "noodle-soup",
+    title: {
+      ru: "Суп лапша",
+      en: "Noodle soup",
+    },
+    category: "soups",
+    description: {
+      ru: "Ароматный бульон и нежная домашняя лапша. Вкус, как из детства — знакомый и настоящий.",
+      en: "Aromatic broth with delicate homemade noodles. A familiar, comforting taste just like in childhood.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 100 }
+    ],
+    image: "/products/noodle-soup.jpg",
+  },
+  {
     id: "borscht",
     title: {
       ru: "Борщ",

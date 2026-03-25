@@ -26,6 +26,7 @@ export function CatalogPage({
     { key: "all", label: t(lang, "all") },
     { key: "frozen", label: t(lang, "frozen") },
     { key: "soups", label: t(lang, "soups") },
+    { key: "semifinished", label: t(lang, "semifinished") },
     { key: "bakery", label: t(lang, "bakery") },
     { key: "desserts", label: t(lang, "desserts") },
     { key: "salads", label: t(lang, "salads") },

@@ -13,6 +13,7 @@ export type PriceOption = {
 export type ProductCategory =
   | "frozen"
   | "soups"
+  | "semifinished"
   | "bakery"
   | "desserts"
   | "salads";
