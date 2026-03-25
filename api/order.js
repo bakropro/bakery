@@ -37,10 +37,6 @@ export default async function handler(req, res) {
       text += `Адрес: ${order.address}\n`;
     }
 
-    if (order.email) {
-      text += `Почта: ${order.email}\n`;
-    }
-
     if (order.comment) {
       text += `Комментарий: ${order.comment}\n`;
     }

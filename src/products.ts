@@ -13,7 +13,7 @@ export const products: Product[] = [
       en: "Fresh minced meat made by hand from chicken with added onions. A perfect base for your favorite homemade dishes.",
     },
     prices: [
-      { label: { ru: "1 кг", en: "1 kg" }, price: 180 }
+      { label: { ru: "кг", en: "kg" }, price: 180 }
     ],
     image: "/products/chicken-minced-meat.jpg",
   },

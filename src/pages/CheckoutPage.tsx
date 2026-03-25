@@ -24,7 +24,6 @@ export function CheckoutPage({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [telegram, setTelegram] = useState("");
-  const [email, setEmail] = useState("");
   const [deliveryType, setDeliveryType] = useState<"delivery" | "pickup">(
     "pickup"
   );
@@ -64,7 +63,6 @@ export function CheckoutPage({
       phone,
       telegram,
       telegramUserId,
-      email,
       deliveryType,
       address: deliveryType === "delivery" ? address : "",
       comment,
@@ -134,17 +132,6 @@ export function CheckoutPage({
               onFocus={onFocus}
               onBlur={onBlur}
               onChange={(e) => setTelegram(e.target.value)}
-            />
-          </div>
-
-          <div className="form-block">
-            <label className="label">{t(lang, "email")}</label>
-            <input
-              className="input"
-              value={email}
-              onFocus={onFocus}
-              onBlur={onBlur}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
