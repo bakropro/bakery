@@ -23,8 +23,11 @@ export function CatalogCard({ product, cart, addToCart, lang }: Props) {
 
   return (
     <div
-      className="catalog-card"
-      onClick={() => navigate(`/product/${product.id}`)}
+      className={"catalog-card" + (product.disabled ? " disabled" : "")}
+      onClick={() => {
+        if (product.disabled) return;
+        navigate(`/product/${product.id}`);
+      }}
     >
       <img src={product.image} alt={product.title[lang]} />
 
@@ -50,12 +53,14 @@ export function CatalogCard({ product, cart, addToCart, lang }: Props) {
 
                   <button
                     className="price-plus"
+                    disabled={product.disabled}
                     onClick={(e) => {
                       e.stopPropagation();
+                      if (product.disabled) return;
                       addToCart(product, p);
                     }}
                   >
-                    +
+                    {product.disabled ? "×" : "+"}
                   </button>
                 </div>
               </div>

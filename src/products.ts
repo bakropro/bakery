@@ -672,6 +672,7 @@ export const products: Product[] = [
       en: "Crunchy sauerkraut with a bright tang and natural flavor — a healthy appetizer rich in vitamins and probiotics.",
     },
     prices: [{ label: { ru: "кг", en: "kg" }, price: 70 }],
-    image: "/products/pickled-cabbage.jpg",
+    image: "/products/pickled-cabbage_SOLDOUT.jpg",
+    disabled: true,
   },
 ];

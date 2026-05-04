@@ -25,6 +25,7 @@ export type Product = {
   description: LocalizedText;
   image: string;
   prices: PriceOption[];
+  disabled?: boolean;
 };
 
 export type CartItem = {
