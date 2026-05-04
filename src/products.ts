@@ -1,6 +1,71 @@
 import { type Product } from "./cartStorage";
 
 export const products: Product[] = [
+
+  {
+    id: "mushroom-cream-soup",
+    title: {
+      ru: "Грибной крем-суп",
+      en: "Mushroom cream soup",
+    },
+    category: "soups",
+    description: {
+      ru: "Нежный, бархатистый суп с насыщенным грибным вкусом.",
+      en: "A smooth and velvety soup with a rich mushroom flavor.",
+    },
+    prices: [
+      { label: { ru: "0,5 л", en: "0.5 L" }, price: 60 }
+    ],
+    image: "/products/mushroom-cream-soup.jpg",
+  },
+  {
+    id: "pancakes-mushrooms-cheese",
+    title: {
+      ru: "Блины с грибами и сыром",
+      en: "Crepes with mushrooms and cheese",
+    },
+    category: "frozen",
+    description: {
+      ru: "Тонкие блинчики с сочной грибной начинкой и тянущимся сыром.",
+      en: "Thin crepes with a juicy mushroom filling and melted stretchy cheese.",
+    },
+    prices: [
+      { label: { ru: "кг", en: "kg" }, price: 180 }
+    ],
+    image: "/products/pancakes-mushrooms-cheese.jpg",
+  },
+  {
+    id: "pancakes-plain",
+    title: {
+      ru: "Блины без начинки",
+      en: "Plain crepes",
+    },
+    category: "frozen",
+    description: {
+      ru: "Тонкие, нежные и румяные — идеальная основа под любые начинки на ваш вкус.",
+      en: "Thin, delicate and golden crepes — a perfect base for any fillings you like.",
+    },
+    prices: [
+      { label: { ru: "500г", en: "500g" }, price: 50 }
+    ],
+    image: "/products/pancakes-plain.jpg",
+  },
+  {
+    id: "vatrushki-curd",
+    title: {
+      ru: "Ватрушки с творогом",
+      en: "Curd vatrushki (curd buns)",
+    },
+    category: "bakery",
+    description: {
+      ru: "Мягкое воздушное тесто и нежная творожная начинка.",
+      en: "Soft fluffy dough with a delicate curd filling.",
+    },
+    prices: [
+      { label: { ru: "шт", en: "pc" }, price: 25 }
+    ],
+    image: "/products/vatrushki-curd.jpg",
+  },
   {
     id: "chicken-minced-meat",
     title: {
@@ -13,7 +78,7 @@ export const products: Product[] = [
       en: "Fresh minced meat made by hand from chicken with added onions. A perfect base for your favorite homemade dishes.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 180 }
+      { label: { ru: "500г", en: "500g" }, price: 90 }
     ],
     image: "/products/chicken-minced-meat.jpg",
   },
@@ -29,7 +94,7 @@ export const products: Product[] = [
       en: "Fresh minced meat made by hand from selected beef with onions. A perfect base for your favorite homemade dishes.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 200 }
+      { label: { ru: "500г", en: "500g" }, price: 100 }
     ],
     image: "/products/beef-minced-meat.jpg",
   },
@@ -45,7 +110,7 @@ export const products: Product[] = [
       en: "Fresh minced meat made by hand from selected beef and pork with onions. A perfect base for your favorite homemade dishes.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 180 }
+      { label: { ru: "500г", en: "500g" }, price: 90 }
     ],
     image: "/products/homemade-minced-meat.jpg",
   },
@@ -61,7 +126,7 @@ export const products: Product[] = [
       en: "Homemade handmade noodles, carefully dried to preserve their flavor. A perfect base for authentic homemade soups. An essential staple for warm family meals.",
     },
     prices: [
-      { label: { ru: "500 г", en: "500 g" }, price: 100 }
+      { label: { ru: "500г", en: "500g" }, price: 100 }
     ],
     image: "/products/homemade-noodles.jpg",
   },
@@ -77,7 +142,7 @@ export const products: Product[] = [
       en: "Aromatic broth with delicate homemade noodles. A familiar, comforting taste just like in childhood.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 100 }
+      { label: { ru: "0.5 л", en: "0.5 L" }, price: 60 }
     ],
     image: "/products/noodle-soup.jpg",
   },
@@ -93,7 +158,7 @@ export const products: Product[] = [
       en: "Traditional borscht with a rich flavor and vibrant beetroot color. Hearty, aromatic, and truly homemade.",
     },
     prices: [
-      { label: { ru: "литр", en: "liter" }, price: 100 }
+      { label: { ru: "0.5 л", en: "0.5 L" }, price: 60 }
     ],
     image: "/products/borscht.jpg",
   },
@@ -109,7 +174,7 @@ export const products: Product[] = [
       en: "Juicy homemade cutlets, pan-fried to a delicious golden crust.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 220 }
+      { label: { ru: "500г", en: "500g" }, price: 125 }
     ],
     image: "/products/home-cutlets-fried.jpg",
   },
@@ -125,7 +190,7 @@ export const products: Product[] = [
       en: "Deep-frozen homemade cutlets that preserve their juiciness and natural flavor. Easy to store, simple to cook, and delicious to enjoy.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 180 }
+      { label: { ru: "500г", en: "500g" }, price: 100 }
     ],
     image: "/products/home-cutlets-raw.jpg",
   },
@@ -141,7 +206,7 @@ export const products: Product[] = [
       en: "Juicy meatballs made from premium meat, pan-fried to a golden crust. A perfect choice for a quick and satisfying meal.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 220 }
+      { label: { ru: "500г", en: "500g" }, price: 125 }
     ],
     image: "/products/meatballs-fried.jpg",
   },
@@ -157,7 +222,7 @@ export const products: Product[] = [
       en: "Juicy meatballs made from premium meat, uncooked and ready to prepare. Cook them your way and create the perfect homemade dish.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 180 }
+      { label: { ru: "500г", en: "500g" }, price: 100 }
     ],
     image: "/products/meatballs-raw.jpg",
   },
@@ -172,7 +237,7 @@ export const products: Product[] = [
       ru: "Пельмени ручной работы с сочным домашним фаршем в тонком тесте — сытное блюдо в лучших традициях домашней кухни.",
       en: "Handmade pelmeni with juicy homemade minced meat in thin dough — a hearty dish in the best traditions of home cooking.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 110 }],
     image: "/products/pelmeni-home.jpg",
   },
   {
@@ -186,7 +251,7 @@ export const products: Product[] = [
       ru: "Нежные пельмени с сочной говядиной в тонком тесте — насыщенный вкус и идеальный баланс текстур.",
       en: "Tender pelmeni with juicy beef in thin dough — rich flavor and a perfect balance of textures.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 220 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 125 }],
     image: "/products/pelmeni-beef.jpg",
   },
   {
@@ -200,7 +265,7 @@ export const products: Product[] = [
       ru: "Сочные пельмени с ароматной начинкой из баранины в тонком тесте — выразительный вкус для ценителей мясных блюд.",
       en: "Juicy pelmeni with flavorful lamb filling in thin dough — a bold taste for lovers of meat dishes.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 250 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 140 }],
     image: "/products/pelmeni-sheep.jpg",
   },
   {
@@ -214,7 +279,7 @@ export const products: Product[] = [
       ru: "Домашние пельмени с ароматной курицей — сытное, но нежное блюдо для любого повода.",
       en: "Homemade pelmeni with flavorful chicken — a hearty yet delicate dish for any occasion.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 110 }],
     image: "/products/pelmeni-chicken.jpg",
   },
   {
@@ -228,7 +293,7 @@ export const products: Product[] = [
       ru: "Нежные пельмени с тянущимся сыром — аппетитное блюдо с мягким вкусом, которое особенно любят дети.",
       en: "Tender pelmeni with melted cheese — an appetizing dish with a mild flavor, especially loved by children.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 200 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 110 }],
     image: "/products/pelmeni-cheese.jpg",
   },
   {
@@ -242,7 +307,7 @@ export const products: Product[] = [
       ru: "Домашние вареники с нежным натуральным творогом в тонком тесте — питательное и по-настоящему аппетитное блюдо с мягким сливочным вкусом.",
       en: "Homemade vareniki with delicate natural cottage cheese in thin dough — a nourishing and truly appetizing dish with a soft creamy taste.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 90 }],
     image: "/products/vareniki-curd.jpg",
   },
   {
@@ -256,7 +321,7 @@ export const products: Product[] = [
       ru: "Нежные вареники из тонкого теста, щедро наполненные сочной вишней с лёгкой кислинкой.",
       en: "Delicate vareniki made with thin dough, generously filled with juicy cherries and a slight tartness.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 90 }],
     image: "/products/vareniki-cherry.jpg",
   },
   {
@@ -270,7 +335,7 @@ export const products: Product[] = [
       ru: "Румяные вареники из тончайшего теста с нежной, тающей во рту картофельной начинкой.",
       en: "Golden vareniki made with very thin dough and a tender potato filling that melts in your mouth.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 100 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 50 }],
     image: "/products/vareniki-potato.jpg",
   },
   {
@@ -284,7 +349,7 @@ export const products: Product[] = [
       ru: "Нежные вареники из тонкого теста с сочной начинкой из картофеля и ароматных грибов. Насыщенный, глубокий вкус и тёплый лесной аромат делают это блюдо особенно уютным и аппетитным.",
       en: "Tender vareniki made with thin dough and a juicy filling of potatoes and aromatic mushrooms. The rich, deep flavor and warm forest aroma make this dish especially cozy and appetizing.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 140 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 70 }],
     image: "/products/vareniki-potato-mushrooms.jpg",
   },
   {
@@ -298,7 +363,7 @@ export const products: Product[] = [
       ru: "Сочные манты в тонком, эластичном тесте с насыщенной мясной начинкой. Приготовленные на пару, они сохраняют естественную сочность, глубокий вкус и аппетитный аромат традиционного татарского блюда.",
       en: "Juicy manti in thin, elastic dough with a rich meat filling. Steamed to perfection, they keep their natural juiciness, deep flavor, and appetizing aroma of a traditional Tatar dish.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 110 }],
     image: "/products/manti.jpg",
   },
   {
@@ -312,7 +377,7 @@ export const products: Product[] = [
       ru: "Мягкие фаршированные перцы с щедрой мясной начинкой и рассыпчатым рисом — сытное домашнее блюдо с ярким, выразительным вкусом.",
       en: "Tender stuffed peppers with a generous meat filling and fluffy rice — a hearty homemade dish with a bright, expressive flavor.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 90 }],
     image: "/products/peppers.jpg",
   },
   {
@@ -326,7 +391,7 @@ export const products: Product[] = [
       ru: "Нежные голубцы с сочной мясной начинкой и рассыпчатым рисом, аккуратно завернутые в мягкие капустные листья — классика домашней кухни в аппетитном исполнении.",
       en: "Tender cabbage rolls with juicy meat filling and fluffy rice, carefully wrapped in soft cabbage leaves — a home-cooking classic in an appetizing form.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 90 }],
     image: "/products/golubci.jpg",
   },
   {
@@ -340,7 +405,7 @@ export const products: Product[] = [
       ru: "Воздушные сырники из натурального творога, обжаренные до золотистой корочки — классический завтрак с мягким сливочным вкусом.",
       en: "Fluffy syrniki made from natural cottage cheese, fried until golden brown — a classic breakfast with a soft creamy taste.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 220 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 115 }],
     image: "/products/sirniki.jpg",
   },
   {
@@ -385,6 +450,7 @@ export const products: Product[] = [
     prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-chicken.jpg",
   },
+  /* УБРАНО ИЗ МЕНЮ
   {
     id: "pancakes-potato-mushrooms",
     title: {
@@ -399,6 +465,7 @@ export const products: Product[] = [
     prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
     image: "/products/pancakes-potato-mushrooms.jpg",
   },
+  */
   {
     id: "pancakes-curd",
     title: {
@@ -410,7 +477,7 @@ export const products: Product[] = [
       ru: "Мягкие блины с натуральным творогом — гармоничное сочетание нежности, пользы и домашнего вкуса.",
       en: "Soft crepes with natural cottage cheese — a harmonious combination of tenderness, goodness, and homemade taste.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 180 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 100 }],
     image: "/products/pancakes-curd.jpg",
   },
   {
@@ -424,7 +491,7 @@ export const products: Product[] = [
       ru: "Нежные блины с яблоками — тёплый и уютный вариант с приятной кисло-сладкой ноткой.",
       en: "Tender crepes with apples — a warm and cozy option with a pleasant sweet-and-sour note.",
     },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 150 }],
+    prices: [{ label: { ru: "500г", en: "500g" }, price: 75 }],
     image: "/products/pancakes-apple.jpg",
   },
   {
@@ -438,7 +505,7 @@ export const products: Product[] = [
       ru: "Румяный пирожок с сочной начинкой из капусты и яйца в мягком тесте — уютная классика домашней кухни.",
       en: "Golden-brown pie with a juicy cabbage and egg filling in soft dough — a cozy classic of home cooking.",
     },
-    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 25 }],
     image: "/products/pie-cabbage-egg.jpg",
   },
   {
@@ -452,7 +519,7 @@ export const products: Product[] = [
       ru: "Золотистый пирожок с ароматной картофельной начинкой в мягком тесте — сытная классика домашней кухни.",
       en: "Golden pie with an aromatic potato filling in soft dough — a hearty classic of home cooking.",
     },
-    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 25 }],
     image: "/products/pie-potato.jpg",
   },
   {
@@ -466,7 +533,7 @@ export const products: Product[] = [
       ru: "Румяный пирожок с картофелем и ароматными грибами в мягком тесте — уютная классика домашней кухни.",
       en: "Golden-brown pie with potatoes and aromatic mushrooms in soft dough — a cozy classic of home cooking.",
     },
-    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 25 }],
     image: "/products/pie-potato-mushrooms.jpg",
   },
   {
@@ -494,7 +561,7 @@ export const products: Product[] = [
       ru: "Золотистый пирожок с нежными яблоками и пряной корицей в мягком тесте — ароматное лакомство с уютным домашним вкусом.",
       en: "Golden pie with tender apples and spicy cinnamon in soft dough — a fragrant treat with a cozy homemade taste.",
     },
-    prices: [{ label: { ru: "шт", en: "pc" }, price: 20 }],
+    prices: [{ label: { ru: "шт", en: "pc" }, price: 25 }],
     image: "/products/pie-apple-cinnamon.jpg",
   },
   {
@@ -523,8 +590,8 @@ export const products: Product[] = [
       en: "Moist spiced carrot sponge cake with delicate cream cheese frosting that melts in your mouth from the very first bite.",
     },
     prices: [
-      { label: { ru: "2,5 кг", en: "2.5 kg" }, price: 450 },
-      { label: { ru: "порция", en: "portion" }, price: 25 },
+      { label: { ru: "2.5кг", en: "2.5kg" }, price: 500 },
+      { label: { ru: "порция", en: "portion" }, price: 35 },
     ],
     image: "/products/cake-carrot.jpg",
   },
@@ -540,10 +607,58 @@ export const products: Product[] = [
       en: "Airy chocolate sponge cake with rich melting dark chocolate cream, generously coated with coconut flakes.",
     },
     prices: [
-      { label: { ru: "2,5 кг", en: "2.5 kg" }, price: 450 },
-      { label: { ru: "порция", en: "portion" }, price: 25 },
+      { label: { ru: "2.5кг", en: "2.5kg" }, price: 500 },
+      { label: { ru: "порция", en: "portion" }, price: 35 },
     ],
     image: "/products/sharlik.jpg",
+  },
+  {
+    id: "vinegret",
+    title: {
+      ru: "Винегрет",
+      en: "Vinegret (beetroot salad)",
+    },
+    category: "salads",
+    description: {
+      ru: "Свежий, яркий салат из овощей — простой, полезный и вкусный.",
+      en: "A fresh and colorful vegetable salad — simple, healthy, and delicious.",
+    },
+    prices: [
+      { label: { ru: "500г", en: "500g" }, price: 80 }
+    ],
+    image: "/products/vinegret.jpg",
+  },
+  {
+    id: "olivier-salad",
+    title: {
+      ru: "Оливье",
+      en: "Olivier salad",
+    },
+    category: "salads",
+    description: {
+      ru: "Классический салат с нежной текстурой и знакомым вкусом, который любят все.",
+      en: "A classic salad with a creamy texture and a familiar flavor loved by everyone.",
+    },
+    prices: [
+      { label: { ru: "500г", en: "500g" }, price: 110 }
+    ],
+    image: "/products/olivier-salad.jpg",
+  },
+  {
+    id: "crab-salad",
+    title: {
+      ru: "Крабовый салат",
+      en: "Crab salad",
+    },
+    category: "salads",
+    description: {
+      ru: "Нежный и сочный салат — лёгкий, свежий и очень вкусный.",
+      en: "A tender and juicy salad — light, fresh, and very delicious.",
+    },
+    prices: [
+      { label: { ru: "500г", en: "500g" }, price: 80 }
+    ],
+    image: "/products/crab-salad.jpg",
   },
   {
     id: "pickled-cabbage",
