@@ -30,7 +30,7 @@ export const products: Product[] = [
       en: "Thin crepes with a juicy mushroom filling and melted stretchy cheese.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 180 }
+      { label: { ru: "500г", en: "500g" }, price: 90 }
     ],
     image: "/products/pancakes-mushrooms-cheese.jpg",
   },
