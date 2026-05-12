@@ -1,7 +1,22 @@
 import { type Product } from "./cartStorage";
 
 export const products: Product[] = [
-
+  {
+    id: "lamb-plov",
+    title: {
+      ru: "Плов из баранины",
+      en: "Lamb plov",
+    },
+    category: "hot",
+    description: {
+      ru: "Ароматный рассыпчатый рис с нежной бараниной и ароматными специями. ТОЛЬКО ПОД ЗАКАЗ!",
+      en: "Fragrant fluffy rice with tender lamb and aromatic spices. AVAILABLE BY PRE-ORDER ONLY!",
+    },
+    prices: [
+      { label: { ru: "2 кг", en: "2 kg" }, price: 1000 }
+    ],
+    image: "/products/lamb-plov.jpg",
+  },
   {
     id: "mushroom-cream-soup",
     title: {

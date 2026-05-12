@@ -25,6 +25,7 @@ export function CatalogPage({
   const categories = [
     { key: "all", label: t(lang, "all") },
     { key: "frozen", label: t(lang, "frozen") },
+    { key: "hot", label: t(lang, "hot") },
     { key: "soups", label: t(lang, "soups") },
     { key: "semifinished", label: t(lang, "semifinished") },
     { key: "bakery", label: t(lang, "bakery") },
