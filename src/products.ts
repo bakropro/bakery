@@ -2,6 +2,40 @@ import { type Product } from "./cartStorage";
 
 export const products: Product[] = [
   {
+    id: "pumpkin-cream-soup",
+    title: {
+      ru: "Тыквенный крем-суп",
+      en: "Creamy pumpkin soup",
+    },
+    category: "soups",
+    description: {
+      ru: "Нежный, бархатистый суп с мягким сладким вкусом тыквы и лёгким сливочным оттенком.",
+      en: "A smooth and velvety soup with the mild sweetness of pumpkin and a delicate creamy finish.",
+    },
+    prices: [
+      { label: { ru: "1 л", en: "1 L" }, price: 120 },
+      { label: { ru: "2 л", en: "2 L" }, price: 240 },
+    ],
+    image: "/products/pumpkin-cream-soup.jpg",
+  },
+  {
+    id: "pea-cream-soup-ribs",
+    title: {
+      ru: "Гороховый крем-суп с копчёными рёбрышками",
+      en: "Creamy pea soup with smoked ribs",
+    },
+    category: "soups",
+    description: {
+      ru: "Густой, сытный и ароматный суп из гороха с насыщенным вкусом копчёностей.",
+      en: "A thick, hearty and aromatic pea soup with the rich flavor of smoked ribs.",
+    },
+    prices: [
+      { label: { ru: "1 л", en: "1 L" }, price: 120 },
+      { label: { ru: "2 л", en: "2 L" }, price: 240 },
+    ],
+    image: "/products/pea-cream-soup-ribs.jpg",
+  },
+  {
     id: "lamb-plov",
     title: {
       ru: "Плов из баранины",
@@ -29,7 +63,8 @@ export const products: Product[] = [
       en: "A smooth and velvety soup with a rich mushroom flavor.",
     },
     prices: [
-      { label: { ru: "0,5 л", en: "0.5 L" }, price: 60 }
+      { label: { ru: "1 л", en: "1 L" }, price: 120 },
+      { label: { ru: "2 л", en: "2 L" }, price: 240 },
     ],
     image: "/products/mushroom-cream-soup.jpg",
   },
@@ -61,7 +96,7 @@ export const products: Product[] = [
       en: "Thin, delicate and golden crepes — a perfect base for any fillings you like.",
     },
     prices: [
-      { label: { ru: "500г", en: "500g" }, price: 50 }
+      { label: { ru: "500г", en: "500g" }, price: 150 }
     ],
     image: "/products/pancakes-plain.jpg",
   },
@@ -157,7 +192,8 @@ export const products: Product[] = [
       en: "Aromatic broth with delicate homemade noodles. A familiar, comforting taste just like in childhood.",
     },
     prices: [
-      { label: { ru: "0.5 л", en: "0.5 L" }, price: 60 }
+      { label: { ru: "1 л", en: "1 L" }, price: 120 },
+      { label: { ru: "2 л", en: "2 L" }, price: 240 }
     ],
     image: "/products/noodle-soup.jpg",
   },
@@ -173,7 +209,8 @@ export const products: Product[] = [
       en: "Traditional borscht with a rich flavor and vibrant beetroot color. Hearty, aromatic, and truly homemade.",
     },
     prices: [
-      { label: { ru: "0.5 л", en: "0.5 L" }, price: 60 }
+      { label: { ru: "1 л", en: "1 L" }, price: 120 },
+      { label: { ru: "2 л", en: "2 L" }, price: 240 }
     ],
     image: "/products/borscht.jpg",
   },
@@ -655,7 +692,7 @@ export const products: Product[] = [
       en: "A classic salad with a creamy texture and a familiar flavor loved by everyone.",
     },
     prices: [
-      { label: { ru: "500г", en: "500g" }, price: 110 }
+      { label: { ru: "500г", en: "500g" }, price: 150 }
     ],
     image: "/products/olivier-salad.jpg",
   },
@@ -688,6 +725,6 @@ export const products: Product[] = [
     },
     prices: [{ label: { ru: "кг", en: "kg" }, price: 70 }],
     image: "/products/pickled-cabbage_SOLDOUT.jpg",
-    disabled: true,
+    disabled: false,
   },
 ];
