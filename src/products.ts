@@ -36,6 +36,21 @@ export const products: Product[] = [
     image: "/products/pea-cream-soup-ribs.jpg",
   },
   {
+    id: "pickled-cabbage",
+    title: {
+      ru: "Квашеная капуста",
+      en: "Sauerkraut",
+    },
+    category: "salads",
+    description: {
+      ru: "Хрустящая квашеная капуста с яркой кислинкой и натуральным вкусом — полезная закуска, богатая витаминами и пробиотиками.",
+      en: "Crunchy sauerkraut with a bright tang and natural flavor — a healthy appetizer rich in vitamins and probiotics.",
+    },
+    prices: [{ label: { ru: "кг", en: "kg" }, price: 70 }],
+    image: "/products/pickled-cabbage.jpg",
+    disabled: false,
+  },
+  {
     id: "lamb-plov",
     title: {
       ru: "Плов из баранины",
@@ -711,20 +726,5 @@ export const products: Product[] = [
       { label: { ru: "500г", en: "500g" }, price: 80 }
     ],
     image: "/products/crab-salad.jpg",
-  },
-  {
-    id: "pickled-cabbage",
-    title: {
-      ru: "Квашеная капуста",
-      en: "Sauerkraut",
-    },
-    category: "salads",
-    description: {
-      ru: "Хрустящая квашеная капуста с яркой кислинкой и натуральным вкусом — полезная закуска, богатая витаминами и пробиотиками.",
-      en: "Crunchy sauerkraut with a bright tang and natural flavor — a healthy appetizer rich in vitamins and probiotics.",
-    },
-    prices: [{ label: { ru: "кг", en: "kg" }, price: 70 }],
-    image: "/products/pickled-cabbage_SOLDOUT.jpg",
-    disabled: false,
   },
 ];
