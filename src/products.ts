@@ -111,7 +111,7 @@ export const products: Product[] = [
       en: "Thin, delicate and golden crepes — a perfect base for any fillings you like.",
     },
     prices: [
-      { label: { ru: "кг", en: "kg" }, price: 300 }
+      { label: { ru: "кг", en: "kg" }, price: 150 }
     ],
     image: "/products/pancakes-plain.jpg",
   },
